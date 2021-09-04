@@ -1,0 +1,20 @@
+F13 & p::Send,{Blind}{Up}
+F13 & n::Send,{Blind}{Down}
+F13 & b::Send,{Blind}{Left}
+F13 & f::Send,{Blind}{Right}
+F13 & a::Send,{Blind}{Home}
+F13 & 0::Send,{Blind}{Home}
+F13 & e::Send,{Blind}{End}
+
+F13 & o::Send,{Blind}{End}{Enter}
+F13 & h::Send,{Blind}{Backspace}
+F13 & d::Send,{Blind}{Delete}
+F13 & k::Send,{Blind}{Shift Down}{End}{Shift Up}^x
+F13 & u::Send,{Blind}{Shift Down}{Home}{Shift Up}{Backspace}
+F13 & w::Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}^x
+F13 & Y::Send,^v
+F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
+
+F13 & l::Send,{Blind}^l
+F13 & c::Send,{Blind}^c
+F13 & [::Send,{Blind}{Esc}
