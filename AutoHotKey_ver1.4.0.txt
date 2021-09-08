@@ -41,8 +41,3 @@ F13 & r::
 F13 & l::Send,{Blind}^l
 F13 & c::Send,{Blind}^c
 F13 & [::Send,{Blind}{Esc}
-
-tetet
-
-tetpet
-tettete
