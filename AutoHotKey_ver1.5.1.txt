@@ -31,7 +31,7 @@ F13 & f::
     }
     Send,{Blind}{Right}
     return
-        
+
 F13 & d::
     if GetKeyState("Alt"){
         Send,{Blind}{Alt Up}{Control Down}{Shift Down}
