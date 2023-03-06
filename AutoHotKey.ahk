@@ -79,7 +79,7 @@ F13 & Tab::
 
 F13 & l::
     if GetKeyState("Shift"){
-        Send,{Blind}{Shift down}{CapsLock}{Shif UP}
+        Send,{Blind}{Shift down}{CapsLock}{Shift UP}
         return
     }
     Send,{Blind}^l
