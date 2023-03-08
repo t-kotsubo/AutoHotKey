@@ -13,6 +13,7 @@ F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
 F13 & c::Send,{Blind}^c
 F13 & v::Send,{Blind}^v
+F13 & sc01C::Send,{Blind}^{Enter}
 
 F13 & b::
     if GetKeyState("Alt"){
@@ -77,12 +78,5 @@ F13 & Tab::
     Send,{Blind}^{Tab}
     return
 
-F13 & l::
-    if GetKeyState("Shift"){
-        Send,{Blind}{Shift down}{CapsLock}{Shift UP}
-        return
-    }
-    Send,{Blind}^l
-    return
-
+F13 & l::Send,{Blind}^l
 F13 & [::Send,{Blind}{Esc}
