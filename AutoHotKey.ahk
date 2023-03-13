@@ -8,7 +8,7 @@ F13 & m::Send,{Blind}{Enter}
 F13 & i::Send,{Blind}^i
 F13 & u::Send,{Blind}{Shift Down}{Home}{Shift Up}{Backspace}
 F13 & w::Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}{Backspace}
-F13 & y::Send,{Blind}^v
+F13 & y::Send,{Blind}{sc00D}
 F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
 F13 & c::Send,{Blind}^c
@@ -17,6 +17,7 @@ F13 & sc01C::Send,{Blind}^{Enter}
 F13 & b::Send,{Blind}{Left}
 F13 & f::Send,{Blind}{Right}
 F13 & @::Send,{Blind}+\
+F13 & sc027::Send,{Blind}{Shift Down}{sc00D}{Shift Up}
 
 F13 & d::
     if GetKeyState("Alt"){
