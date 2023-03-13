@@ -17,7 +17,7 @@ F13 & sc01C::Send,{Blind}^{Enter}
 F13 & b::Send,{Blind}{Left}
 F13 & f::Send,{Blind}{Right}
 F13 & @::Send,{Blind}+\
-F13 & sc027::Send,{Blind}{Shift Down}{sc00D}{Shift Up}
+F13 & sc028::Send,{Blind}{Shift Down}{sc00D}{Shift Up}
 
 F13 & d::
     if GetKeyState("Alt"){
