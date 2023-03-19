@@ -3,7 +3,6 @@ F13 & n::Send,{Blind}{Down}
 F13 & a::Send,{Blind}{Home}
 F13 & e::Send,{Blind}{End}
 F13 & 0::Send,{Blind}{Home}
-F13 & h::Send,{Blind}{Backspace}
 F13 & m::Send,{Blind}{Enter}
 F13 & i::Send,{Blind}^i
 F13 & u::Send,{Blind}{Shift Down}{Home}{Shift Up}^x
@@ -20,6 +19,14 @@ F13 & r::Send,{Blind}^z
 F13 & sc073::Send,{Blind}^y
 F13 & sc137::Send,{Blind}{sc15B Down}x{sc15B Up}us
 F13 & sc045::Send,{Blind}{sc15B Down}x{sc15B Up}uu
+
+F13 & h::
+    if GetKeyState("Shift"){
+	  Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}{Backspace}
+        return
+    }
+    Send,{Blind}{Backspace}
+    return
 
 F13 & d::
     if GetKeyState("Alt"){
