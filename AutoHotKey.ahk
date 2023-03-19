@@ -11,6 +11,7 @@ F13 & w::Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}^x
 F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
 F13 & c::Send,{Blind}^c
+F13 & v::Send,{Blind}^v
 F13 & sc01C::Send,{Blind}^{Enter}
 F13 & b::Send,{Blind}{Left}
 F13 & f::Send,{Blind}{Right}
