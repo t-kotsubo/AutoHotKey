@@ -5,7 +5,6 @@ F13 & e::Send,{Blind}{End}
 F13 & 0::Send,{Blind}{Home}
 F13 & m::Send,{Blind}{Enter}
 F13 & i::Send,{Blind}^i
-F13 & u::Send,{Blind}{Shift Down}{Home}{Shift Up}^x
 F13 & w::Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}^x
 F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
@@ -26,6 +25,14 @@ F13 & h::
         return
     }
     Send,{Blind}{Backspace}
+    return
+
+F13 & u::
+    if GetKeyState("Shift"){
+	  Send,{Blind}{Shift Down}{Home}{Shift Up}{Backspace}
+        return
+    }
+    Send,{Blind}{Shift Down}{Home}{Shift Up}^x
     return
 
 F13 & d::
