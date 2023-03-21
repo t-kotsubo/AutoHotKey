@@ -36,10 +36,8 @@ F13 & u::
     return
 
 F13 & d::
-    if GetKeyState("Alt"){
-        Send,{Blind}{Alt Up}{Control Down}{Shift Down}
-        Send,{Blind}{Right}{Delete}
-        Send,{Blind}{Shift Up}{Control Up}
+    if GetKeyState("Shift"){
+        Send,{Blind}{Shift Down}{End}{Shift Up}{Backspace}
         return
     }
     Send,{Blind}{Delete}
