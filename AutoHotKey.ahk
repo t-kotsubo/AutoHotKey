@@ -16,8 +16,7 @@ F13 & sc01C::Send,{Blind}^{Enter} ; F13 + Enter: Ctrl + Enter
 F13 & b::Send,{Blind}{Left}
 F13 & f::Send,{Blind}{Right}
 F13 & @::Send,{Blind}+\ ; F13 + @: |(パイプ)入力
-F13 & r::Send,{Blind}^z
-F13 & sc073::Send,{Blind}^y ; F13 + / やり直し(F13 + rの逆)
+F13 & sc073::Send,{Blind}^y ; F13 + / やり直す(Ctrl + Y)
 F13 & sc137::Send,{Blind}{sc15B Down}x{sc15B Up}us ; F13 + PrintScreen: スリープ
 F13 & sc045::Send,{Blind}{sc15B Down}x{sc15B Up}uu ; F13 + Pause: シャットダウン
 F13 & sc148::Send,{U+2191} ; ↑入力
@@ -25,8 +24,18 @@ F13 & sc150::Send,{U+2193} ; ↓入力
 F13 & sc14D::Send,{U+2192} ; →入力
 F13 & sc14B::Send,{U+2190} ; ←入力
 
+; F13 + r : 元に戻す
+; F13 + Shift + r : やり直す(Ctrl + Shift + Z)
+F13 & r::
+    if GetKeyState("Shift"){
+	Send,{Blind}^+z
+        return
+    }
+    Send,{Blind}^z
+    return
+
 ; F13 + h : 前方の一文字を削除
-; F13 + h : 前方の単語の一区切りを削除
+; F13 + Shift + h : 前方の単語の一区切りを削除
 F13 & h::
     if GetKeyState("Shift"){
 	  Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}{Backspace}
