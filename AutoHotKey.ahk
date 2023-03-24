@@ -23,6 +23,7 @@ F13 & sc148::Send,{U+2191} ; ↑入力
 F13 & sc150::Send,{U+2193} ; ↓入力
 F13 & sc14D::Send,{U+2192} ; →入力
 F13 & sc14B::Send,{U+2190} ; ←入力
+F13 & Backspace::Send,{Blind}!{F4} ; F13 + Backspace : アプリを終了
 
 ; F13 + r : 元に戻す
 ; F13 + Shift + r : やり直す(Ctrl + Shift + Z)
