@@ -85,8 +85,8 @@ F13 & k::
     Send,{Blind}{Shift Down}{End}{Shift Up}^x
     return
 
-; F13 + k : クリップボードに履歴を残してカーソル位置から文末までを一括削除
-; F13 + Shift + k : クリップボードに履歴を残して一行を削除
+; F13 + y : 貼り付け(Ctrl + v)
+; F13 + Shift + y : 前に行を挿入して貼り付け
 F13 & y::
     if GetKeyState("Shift"){
         Send,{Blind}{Shift Up}{Home}{Enter}{Up}^v
