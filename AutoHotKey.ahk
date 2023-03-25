@@ -3,10 +3,10 @@ F13 & n::Send,{Blind}{Down}
 F13 & a::Send,{Blind}{Home}
 F13 & e::Send,{Blind}{End}
 F13 & 0::Send,{Blind}{Home}
+F13 & h::Send,{Backspace}
 F13 & l::Send,{Blind}^l
 F13 & m::Send,{Blind}{Enter}
 F13 & i::Send,{Blind}^i
-F13 & w::Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}^x
 F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
 F13 & c::Send,{Blind}^c
@@ -35,14 +35,14 @@ F13 & r::
     Send,{Blind}^z
     return
 
-; F13 + h : 前方の一文字を削除
-; F13 + Shift + h : 前方の単語の一区切りを削除
-F13 & h::
+; F13 + w : 前方の単語の一区切りをクリップボードに履歴を残して削除(切り取り)
+; F13 + Shift + w : 前方の単語の一区切りをクリップボードに履歴を残さず削除(削除)
+F13 & w::
     if GetKeyState("Shift"){
 	  Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}{Backspace}
         return
     }
-    Send,{Blind}{Backspace}
+    Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}^x
     return
 
 ; F13 + u : クリップボードに履歴を残してカーソル位置から文頭までを一括削除
