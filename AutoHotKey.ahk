@@ -18,10 +18,6 @@ F13 & f::Send,{Blind}{Right}
 F13 & @::Send,{Blind}+\ ; F13 + @: |(パイプ)入力
 F13 & sc073::Send,{Blind}^y ; F13 + / やり直す(Ctrl + Y)
 F13 & Backspace:: Send,{Blind}!{F4} ; F13 + Backspace : アプリを終了
-F13 & Up::Send,{U+2191} ; ↑入力
-F13 & Down::Send,{U+2193} ; ↓入力
-F13 & Right::Send,{U+2192} ; →入力
-F13 & Left::Send,{U+2190} ; ←入力
 F13 & ScrollLock::Shutdown, 2 ; F13 + ScrollLock: 再起動
 F13 & PrintScreen:: ; F13 + PrintScreen: スリープ
     DllCall("PowrProf\SetSuspendState", "int", 0, "int", 1, "int", 0)
@@ -114,4 +110,44 @@ F13 & Tab::
         return
     }
     Send,{Blind}^{Tab}
+    return
+
+; F13 + ↑キー : 上矢印入力
+; F13 + Shift + ↑キー : 音量UP
+F13 & Up::
+    if GetKeyState("Shift"){
+        Send,{Volume_Up}
+        return
+    }
+    Send,{U+2191}
+    return
+
+; F13 + ↓キー : 下矢印入力
+; F13 + Shift + ↓キー : 音量DOWN
+F13 & Down::
+    if GetKeyState("Shift"){
+        Send,{Volume_Down}
+        return
+    }
+    Send,{U+2193}
+    return
+
+; F13 + →キー : 右矢印入力
+; F13 + Shift + →キー : ミュート/アンミュート
+F13 & Right::
+    if GetKeyState("Shift"){
+        Send,{Volume_Mute}
+        return
+    }
+    Send,{U+2192}
+    return
+
+; F13 + ←キー : 左矢印入力
+; F13 + Shift + ↓キー : ミュート/アンミュート
+F13 & Left::
+    if GetKeyState("Shift"){
+        Send,{Volume_Mute}
+        return
+    }
+    Send,{U+2190}
     return
