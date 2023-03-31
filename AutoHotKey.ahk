@@ -17,13 +17,25 @@ F13 & b::Send,{Blind}{Left}
 F13 & f::Send,{Blind}{Right}
 F13 & @::Send,{Blind}+\ ; F13 + @: |(パイプ)入力
 F13 & sc073::Send,{Blind}^y ; F13 + / やり直す(Ctrl + Y)
-F13 & sc137::Send,{Blind}{sc15B Down}x{sc15B Up}us ; F13 + PrintScreen: スリープ
-F13 & sc045::Send,{Blind}{sc15B Down}x{sc15B Up}uu ; F13 + Pause: シャットダウン
-F13 & sc148::Send,{U+2191} ; ↑入力
-F13 & sc150::Send,{U+2193} ; ↓入力
-F13 & sc14D::Send,{U+2192} ; →入力
-F13 & sc14B::Send,{U+2190} ; ←入力
-F13 & Backspace::Send,{Blind}!{F4} ; F13 + Backspace : アプリを終了
+F13 & Backspace:: Send,{Blind}!{F4} ; F13 + Backspace : アプリを終了
+F13 & Up::Send,{U+2191} ; ↑入力
+F13 & Down::Send,{U+2193} ; ↓入力
+F13 & Right::Send,{U+2192} ; →入力
+F13 & Left::Send,{U+2190} ; ←入力
+F13 & ScrollLock::Shutdown, 2 ; F13 + ScrollLock: 再起動
+F13 & PrintScreen:: ; F13 + PrintScreen: スリープ
+    DllCall("PowrProf\SetSuspendState", "int", 0, "int", 1, "int", 0)
+    return
+
+; F13 + Pause ; シャットダウン
+; F13 + Shift + Pause : 全てのアプリを強制終了してシャットダウン
+F13 & Pause::
+    if GetKeyState("Shift"){
+        Shutdown, 5 ; (アプリの強制終了:4 + シャットダウン:1)
+        return
+    }
+    Shutdown, 1 ; シャットダウン:1
+    return
 
 ; F13 + r : 元に戻す
 ; F13 + Shift + r : やり直す(Ctrl + Shift + Z)
