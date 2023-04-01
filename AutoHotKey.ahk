@@ -152,8 +152,8 @@ F13 & Left::
     Send,{U+2190}
     return
 
-; F13 + Homeキー : ミュート/ミュート解除
-F13 & Home:: Send,{Volume_Mute}
+; F13 + Endキー : ミュート/ミュート解除
+F13 & End:: Send,{Volume_Mute}
 
 ; F14 + 数字キー(1~5)： 各ファンクキー(F1~F5)
 F14 & 1::Send,{F1}
