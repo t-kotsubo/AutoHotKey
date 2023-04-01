@@ -133,21 +133,31 @@ F13 & Down::
     return
 
 ; F13 + →キー : 右矢印入力
-; F13 + Shift + →キー : ミュート/アンミュート
+; F13 + Shift + →キー : 次のメディア
 F13 & Right::
     if GetKeyState("Shift"){
-        Send,{Volume_Mute}
+        Send,{Media_Next}
         return
     }
     Send,{U+2192}
     return
 
 ; F13 + ←キー : 左矢印入力
-; F13 + Shift + ↓キー : ミュート/アンミュート
+; F13 + Shift + ←キー : 前のメディア
 F13 & Left::
     if GetKeyState("Shift"){
-        Send,{Volume_Mute}
+        Send,{Media_Prev}
         return
     }
     Send,{U+2190}
     return
+
+; F13 + Homeキー : ミュート/ミュート解除
+F13 & Home:: Send,{Volume_Mute}
+
+; F14 + 数字キー(1~5)： 各ファンクキー(F1~F5)
+F14 & 1::Send,{F1}
+F14 & 2::Send,{F2}
+F14 & 3::Send,{F3}
+F14 & 4::Send,{F4}
+F14 & 5::Send,{F5}
