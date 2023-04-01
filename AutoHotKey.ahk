@@ -17,10 +17,19 @@ F13 & b::Send,{Blind}{Left}
 F13 & f::Send,{Blind}{Right}
 F13 & @::Send,{Blind}+\ ; F13 + @: |(パイプ)入力
 F13 & sc073::Send,{Blind}^y ; F13 + / やり直す(Ctrl + Y)
-F13 & Backspace:: Send,{Blind}!{F4} ; F13 + Backspace : アプリを終了
 F13 & ScrollLock::Shutdown, 2 ; F13 + ScrollLock: 再起動
 F13 & PrintScreen:: ; F13 + PrintScreen: スリープ
     DllCall("PowrProf\SetSuspendState", "int", 0, "int", 1, "int", 0)
+    return
+
+; F13 + Backspace ; ウィンドウ(単体)を閉じる(Alt + F4)
+; F13 + Shift + Backspace : 全てのウィンドウを閉じる(CloseAllのアプリを実行)
+F13 & Backspace::
+    if GetKeyState("Shift"){
+        Run,"C:\ShortCut\CloseAll.exe.lnk"
+        return
+    }
+    Send,{Blind}!{F4}
     return
 
 ; F13 + Pause ; シャットダウン
