@@ -161,3 +161,6 @@ F14 & 2::Send,{F2}
 F14 & 3::Send,{F3}
 F14 & 4::Send,{F4}
 F14 & 5::Send,{F5}
+
+; Windowsキー + S ：スクリーンショット(Windows + Shift + S)
+F14 & s::Send,{Blind}#+s
