@@ -164,6 +164,9 @@ F13 & Left::
 ; F13 + Endキー : ミュート/ミュート解除
 F13 & End:: Send,{Volume_Mute}
 
+; F14: 左クリック
+F14::Send,{LButton}
+
 ; F14 + 数字キー(1~5)： 各ファンクキー(F1~F5)
 F14 & 1::Send,{F1}
 F14 & 2::Send,{F2}
@@ -171,5 +174,8 @@ F14 & 3::Send,{F3}
 F14 & 4::Send,{F4}
 F14 & 5::Send,{F5}
 
-; Windowsキー + S ：スクリーンショット(Windows + Shift + S)
+; スクリーンショット(Windows + Shift + S)
 F14 & s::Send,{Blind}#+s
+
+; 画面動画をキャプチャー(Windows + Alt + R)
+F14 & r::Send,{Blind}#!r
