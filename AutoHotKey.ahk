@@ -18,13 +18,13 @@ F13 & f::Send,{Blind}{Right}
 F13 & @::Send,{Blind}+\ ; F13 + @: |(パイプ)入力
 F13 & sc073::Send,{Blind}^y ; F13 + / やり直す(Ctrl + Y)
 F13 & ScrollLock::Shutdown, 2 ; F13 + ScrollLock: 再起動
-F13 & PrintScreen:: ; F13 + PrintScreen: スリープ
-    DllCall("PowrProf\SetSuspendState", "int", 0, "int", 1, "int", 0)
+F13 & PrintScreen:: ; F13 + PrintScreen: 休止モード
+    DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
     return
 
-; F13 + Backspace ; ウィンドウ(単体)を閉じる(Alt + F4)
-; F13 + Shift + Backspace : 全てのウィンドウを閉じる(CloseAllのアプリを実行)
-F13 & Backspace::
+; F13 + Delete ; ウィンドウ(単体)を閉じる(Alt + F4)
+; F13 + Shift + Delete : 全てのウィンドウを閉じる(CloseAllのアプリを実行)
+F13 & Delete::
     if GetKeyState("Shift"){
         Run,"C:\ShortCut\CloseAll.exe.lnk"
         return
@@ -179,3 +179,55 @@ F14 & s::Send,{Blind}#+s
 
 ; 画面動画をキャプチャー(Windows + Alt + R)
 F14 & r::Send,{Blind}#!r
+
+; ターミナルを起動
+F14 & t::Run,wt.exe
+
+; メモ帳を起動
+F14 & w::Run,notepad.exe
+
+; エクスプローラーを起動
+F14 & e::Run,explorer.exe
+
+; ダウンロードフォルダを開く
+F14 & d::Run,"C:\Users\t_kot\Downloads"
+
+; ペイントを開く
+F14 & p::Run,pbrush.exe
+
+; コントロールパネルを開く
+F14 & c::Run,control
+
+; Windows + Xメニュー
+F14 & x::Send,{Blind}#x
+
+; アプリケーションキー設定
+AppsKey::Send,{AppsKey}
+
+; Chromeを起動：アプリケーションキー + C
+AppsKey & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
+
+; VS Codeを起動
+AppsKey & v::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
+
+; Typoraを起動: アプリケーションキー + T
+; Todoistを起動: アプリケーションキー + Ctrl + T
+AppsKey & t::
+    if GetKeyState("Control"){
+        Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Todoist.lnk"
+        return
+    }
+    Run,"C:\Program Files\Typora\Typora.exe"
+    return
+
+; Kindleを起動: アプリケーションキー + R
+Appskey & r::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Amazon\Amazon Kindle\Kindle.lnk"
+
+; Excelを起動: アプリケーションキー + E
+Appskey & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
+
+; Wordを起動: アプリケーションキー + W
+Appskey & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
+
+; サクラエディタを起動: アプリケーションキー + S
+Appskey & s::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\サクラエディタ.lnk"
