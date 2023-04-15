@@ -229,5 +229,11 @@ Appskey & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk
 ; Wordを起動: アプリケーションキー + W
 Appskey & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
 
+; OneNoteを起動: アプリケーションキー + Q
+Appskey & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk"
+
 ; サクラエディタを起動: アプリケーションキー + S
 Appskey & s::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\サクラエディタ.lnk"
+
+; アプリを終了:(Shift + Backspace)
++Backspace::Send,{Blind}!{F4}
