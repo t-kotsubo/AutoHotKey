@@ -22,14 +22,15 @@ F13 & PrintScreen:: ; F13 + PrintScreen: 休止モード
     DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
     return
 
-; F13 + Delete ; ウィンドウ(単体)を閉じる(Alt + F4)
+; F13 + Delete ; スリープモード
 ; F13 + Shift + Delete : 全てのウィンドウを閉じる(CloseAllのアプリを実行)
 F13 & Delete::
     if GetKeyState("Shift"){
         Run,"C:\ShortCut\CloseAll.exe.lnk"
         return
     }
-    Send,{Blind}!{F4}
+    Send,{Blind}#x
+    Send,{Blind}us
     return
 
 ; F13 + Pause ; シャットダウン
@@ -235,5 +236,5 @@ Appskey & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.l
 ; サクラエディタを起動: アプリケーションキー + S
 Appskey & s::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\サクラエディタ.lnk"
 
-; アプリを終了:(Shift + Backspace)
+; アプリを終了(ウィンドウを閉じる):(Shift + Backspace)
 +Backspace::Send,{Blind}!{F4}
