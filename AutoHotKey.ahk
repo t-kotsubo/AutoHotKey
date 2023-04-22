@@ -53,14 +53,14 @@ F13 & r::
     Send,{Blind}^z
     return
 
-; F13 + w : 前方の単語の一区切りをクリップボードに履歴を残して削除(切り取り)
-; F13 + Shift + w : 前方の単語の一区切りをクリップボードに履歴を残さず削除(削除)
+; F13 + w : 前方の単語の一区切りをクリップボードに履歴を残さず削除(削除)
+; F13 + Shift + w : 前方の単語の一区切りをクリップボードに履歴を残して削除(切り取り)
 F13 & w::
     if GetKeyState("Shift"){
-	  Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}{Backspace}
+	  Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}^x
         return
     }
-    Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}^x
+    Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}{Backspace}
     return
 
 ; F13 + u : クリップボードに履歴を残さずカーソル位置から文頭までを一括削除
