@@ -63,21 +63,21 @@ F13 & w::
     Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}^x
     return
 
-; F13 + u : クリップボードに履歴を残してカーソル位置から文頭までを一括削除
-; F13 + Shift + u : クリップボードに履歴を残さずカーソル位置から文頭までを一括削除
+; F13 + u : クリップボードに履歴を残さずカーソル位置から文頭までを一括削除
+; F13 + Shift + u : クリップボードに履歴を残してカーソル位置から文頭までを一括削除
 F13 & u::
     if GetKeyState("Shift"){
-	  Send,{Blind}{Shift Down}{Home}{Shift Up}{Backspace}
+	  Send,{Blind}{Shift Down}{Home}{Shift Up}^x
         return
     }
-    Send,{Blind}{Shift Down}{Home}{Shift Up}^x
+    Send,{Blind}{Shift Down}{Home}{Shift Up}{Backspace}
     return
 
 ; F13 + d : 後方の一文字を削除
-; F13 + Shift + d : クリップボードに履歴を残さずカーソル位置から文末までを削除
+; F13 + Shift + d : クリップボードに履歴を残してカーソル位置から文末までを削除
 F13 & d::
     if GetKeyState("Shift"){
-        Send,{Blind}{Shift Down}{End}{Shift Up}{Backspace}
+        Send,{Blind}{Shift Down}{End}{Shift Up}^x
         return
     }
     Send,{Blind}{Delete}
@@ -93,14 +93,14 @@ F13 & o::
     Send,{Blind}{End}{Enter}
     return
 
-; F13 + k : クリップボードに履歴を残してカーソル位置から文末までを一括削除
+; F13 + k : クリップボードに履歴を残さずカーソル位置から文末までを一括削除
 ; F13 + Shift + k : クリップボードに履歴を残して一行を削除
 F13 & k::
     if GetKeyState("Shift"){
         Send,{Blind}{Shift Up}{End}{Shift Down}{Home}{Shift Up}^x
         return
     }
-    Send,{Blind}{Shift Down}{End}{Shift Up}^x
+    Send,{Blind}{Shift Down}{End}{Shift Up}{Backspace}
     return
 
 ; F13 + y : 貼り付け(Ctrl + v)
@@ -199,17 +199,20 @@ F14 & p::Run,pbrush.exe
 ; コントロールパネルを開く
 F14 & c::Run,control
 
+; VS Codeを起動
+F14 & v::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
+
 ; Windows + Xメニュー
 F14 & x::Send,{Blind}#x
+
+; OneNote クイックノートを起動する
+F14 & q::Send,{Blind}#!n
 
 ; アプリケーションキー設定
 AppsKey::Send,{AppsKey}
 
 ; Chromeを起動：アプリケーションキー + C
 AppsKey & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
-
-; VS Codeを起動
-AppsKey & v::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
 
 ; Typoraを起動: アプリケーションキー + T
 ; Todoistを起動: アプリケーションキー + Ctrl + T
@@ -238,3 +241,6 @@ Appskey & s::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\�
 
 ; アプリを終了(ウィンドウを閉じる):(Shift + Backspace)
 +Backspace::Send,{Blind}!{F4}
+
+#ifWinActive ahk_exe EXCEL.EXE
+AppsKey & V::Send,{Appskey}s{Enter}v{Enter}
