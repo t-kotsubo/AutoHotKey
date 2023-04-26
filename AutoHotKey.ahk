@@ -230,6 +230,9 @@ Appskey & r::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Pr
 ; Excelを起動: アプリケーションキー + E
 Appskey & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
 
+; Discordを起動: アプリケーションキー + D
+Appskey & d::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk"
+
 ; Wordを起動: アプリケーションキー + W
 Appskey & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
 
