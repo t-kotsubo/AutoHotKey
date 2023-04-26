@@ -237,10 +237,20 @@ Appskey & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
 Appskey & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk"
 
 ; サクラエディタを起動: アプリケーションキー + S
-Appskey & s::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\サクラエディタ.lnk"
+; Slackを起動: アプリケーションキー + Ctrl + S
+AppsKey & s::
+    if GetKeyState("Control"){
+        Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
+        return
+    }
+    Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\サクラエディタ.lnk"
+    return
+
+; Xmindを起動: アプリケーションキー + X
+Appskey & x::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Xmind.lnk"
 
 ; アプリを終了(ウィンドウを閉じる):(Shift + Backspace)
 +Backspace::Send,{Blind}!{F4}
 
 #ifWinActive ahk_exe EXCEL.EXE
-AppsKey & V::Send,{Appskey}s{Enter}v{Enter}
+AppsKey & v::Send,{Appskey}s{Enter}v{Enter}
