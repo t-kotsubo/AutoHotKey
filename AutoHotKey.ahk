@@ -255,5 +255,10 @@ Appskey & x::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Pr
 ; アプリを終了(ウィンドウを閉じる):(Shift + Backspace)
 +Backspace::Send,{Blind}!{F4}
 
+; Excel起動時のみ：値のみ貼り付け
 #ifWinActive ahk_exe EXCEL.EXE
 AppsKey & v::Send,{Appskey}s{Enter}v{Enter}
+
+; Excel起動時のみ：テーブルの枠線をつける
+#ifWinActive ahk_exe EXCEL.EXE
+F14 & f::Send,{Alt}hba
