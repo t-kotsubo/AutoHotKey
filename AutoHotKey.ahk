@@ -1,8 +1,8 @@
-F13 & p::Send,{Blind}{Up}
-F13 & n::Send,{Blind}{Down}
-F13 & a::Send,{Blind}{Home}
-F13 & e::Send,{Blind}{End}
-F13 & 0::Send,{Blind}{Home}
+F13 & p::Send,{Up}
+F13 & n::Send,{Down}
+F13 & a::Send,{Home}
+F13 & e::Send,{End}
+F13 & 0::Send,{Home}
 F13 & h::Send,{Backspace}
 F13 & l::Send,{Blind}^l
 F13 & m::Send,{Blind}{Enter}
@@ -13,8 +13,8 @@ F13 & c::Send,{Blind}^c
 F13 & v::Send,{Blind}^v
 F13 & [::Send,{Blind}{Esc}
 F13 & sc01C::Send,{Blind}^{Enter} ; F13 + Enter: Ctrl + Enter
-F13 & b::Send,{Blind}{Left}
-F13 & f::Send,{Blind}{Right}
+F13 & b::Send,{Left}
+F13 & f::Send,{Right}
 F13 & @::Send,{Blind}+\ ; F13 + @: |(パイプ)入力
 F13 & sc073::Send,{Blind}^y ; F13 + / やり直す(Ctrl + Y)
 F13 & ScrollLock::Shutdown, 2 ; F13 + ScrollLock: 再起動
