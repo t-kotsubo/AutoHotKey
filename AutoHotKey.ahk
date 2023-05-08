@@ -252,6 +252,16 @@ AppsKey & s::
 ; Xmindを起動: アプリケーションキー + X
 Appskey & x::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Xmind.lnk"
 
+; A5M2を起動: アプリケーションキー + A
+; Asanaを起動: アプリケーションキー + Ctrl + A
+AppsKey & a::
+    if GetKeyState("Control"){
+	  Run,"C:\Users\t_kot\AppData\Local\Asana\Asana.exe"
+        return
+    }
+    Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\A5M2.lnk"
+    return
+
 ; アプリを終了(ウィンドウを閉じる):(Shift + Backspace)
 +Backspace::Send,{Blind}!{F4}
 
