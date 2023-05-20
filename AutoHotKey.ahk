@@ -22,25 +22,27 @@ F13 & PrintScreen:: ; F13 + PrintScreen: 休止モード
     DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
     return
 
-; F13 + Delete ; スリープモード
+; F13 + Delete ; アプリを終了(ウィンドウ)を閉じる
 ; F13 + Shift + Delete : 全てのウィンドウを閉じる(CloseAllのアプリを実行)
 F13 & Delete::
     if GetKeyState("Shift"){
         Run,"C:\ShortCut\CloseAll.exe.lnk"
         return
     }
-    Send,{Blind}#x
-    Send,{Blind}us
+    Send,{Blind}!{F4}
     return
 
-; F13 + Pause ; シャットダウン
-; F13 + Shift + Pause : 全てのアプリを強制終了してシャットダウン
+; F13 + Pause ; スリープ
+; F13 + Shift + Pause : シャットダウン
 F13 & Pause::
     if GetKeyState("Shift"){
-        Shutdown, 5 ; (アプリの強制終了:4 + シャットダウン:1)
+	  Shutdown, 1 ; シャットダウン:1
         return
     }
-    Shutdown, 1 ; シャットダウン:1
+    Send,{Blind}^d
+    Send,{Blind}#x
+    Send,u
+    Send,s
     return
 
 ; F13 + r : 元に戻す
@@ -261,9 +263,6 @@ AppsKey & a::
     }
     Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\A5M2.lnk"
     return
-
-; アプリを終了(ウィンドウを閉じる):(Shift + Backspace)
-+Backspace::Send,{Blind}!{F4}
 
 ; Excel起動時のみ：値のみ貼り付け
 #ifWinActive ahk_exe EXCEL.EXE
