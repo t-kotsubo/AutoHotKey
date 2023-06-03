@@ -10,7 +10,7 @@ F13 & i::Send,{Blind}^i
 F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
 F13 & c::Send,{Blind}^c
-F13 & v::Send,{Blind}^v
+F13 & v::Send,{Blind}#!v ; Cliborのショートカットを呼び出し
 F13 & [::Send,{Blind}{Esc}
 F13 & sc01C::Send,{Blind}^{Enter} ; F13 + Enter: Ctrl + Enter
 F13 & b::Send,{Left}
