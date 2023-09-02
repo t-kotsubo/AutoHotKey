@@ -37,7 +37,7 @@ F13 & Delete::
 F13 & Pause::
     if GetKeyState("Shift"){
 	  Shutdown, 1 ; シャットダウン:1
-        return
+      return
     }
     Send,{Blind}^d
     Send,{Blind}#x
@@ -50,7 +50,7 @@ F13 & Pause::
 F13 & r::
     if GetKeyState("Shift"){
 	Send,{Blind}^+z
-        return
+      return
     }
     Send,{Blind}^z
     return
@@ -60,7 +60,7 @@ F13 & r::
 F13 & w::
     if GetKeyState("Shift"){
 	  Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}^x
-        return
+      return
     }
     Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}{Backspace}
     return
@@ -70,7 +70,7 @@ F13 & w::
 F13 & u::
     if GetKeyState("Shift"){
 	  Send,{Blind}{Shift Down}{Home}{Shift Up}^x
-        return
+      return
     }
     Send,{Blind}{Shift Down}{Home}{Shift Up}{Backspace}
     return
@@ -79,8 +79,8 @@ F13 & u::
 ; F13 + Shift + d : クリップボードに履歴を残してカーソル位置から文末までを削除
 F13 & d::
     if GetKeyState("Shift"){
-        Send,{Blind}{Shift Down}{End}{Shift Up}^x
-        return
+      Send,{Blind}{Shift Down}{End}{Shift Up}^x
+      return
     }
     Send,{Blind}{Delete}
     return
@@ -89,8 +89,8 @@ F13 & d::
 ; F13 + Shift + o : 前の行に行を挿入
 F13 & o::
     if GetKeyState("Shift"){
-        Send,{Blind}{Shift Up}{Home}{Enter}{Up}
-        return
+      Send,{Blind}{Shift Up}{Home}{Enter}{Up}
+      return
     }
     Send,{Blind}{End}{Enter}
     return
@@ -99,8 +99,8 @@ F13 & o::
 ; F13 + Shift + k : クリップボードに履歴を残して一行を削除
 F13 & k::
     if GetKeyState("Shift"){
-        Send,{Blind}{Shift Up}{End}{Shift Down}{Home}{Shift Up}^x
-        return
+      Send,{Blind}{Shift Up}{End}{Shift Down}{Home}{Shift Up}^x
+      return
     }
     Send,{Blind}{Shift Down}{End}{Shift Up}{Backspace}
     return
@@ -109,60 +109,67 @@ F13 & k::
 ; F13 + Shift + y : 前に行を挿入して貼り付け
 F13 & y::
     if GetKeyState("Shift"){
-        Send,{Blind}{Shift Up}{Home}{Enter}{Up}^v
-        return
+      Send,{Blind}{Shift Up}{Home}{Enter}{Up}^v
+      return
     }
     Send,{Blind}^v
     return
 
 F13 & Tab::
     if GetKeyState("Shift"){
-        Send,{Blind}{Shift Up}
-        Send,{Blind}{Ctrl Down}{Shift Down}{Tab}{Shift Up}{Ctrl Up}
-        return
+      Send,{Blind}{Shift Up}
+      Send,{Blind}{Ctrl Down}{Shift Down}{Tab}{Shift Up}{Ctrl Up}
+      return
     }
     Send,{Blind}^{Tab}
     return
 
-; F13 + ↑キー : 上矢印入力
-; F13 + Shift + ↑キー : 音量UP
+; F13 + ↑キー : デスクトップ管理画面
+; F13 + Shift + ↑キー : 上矢印入力
 F13 & Up::
     if GetKeyState("Shift"){
-        Send,{Volume_Up}
-        return
-    }
     Send,{U+2191}
     return
+    }
+    Send,{Blind}#{Tab}
+    return
 
-; F13 + ↓キー : 下矢印入力
-; F13 + Shift + ↓キー : 音量DOWN
+; F13 + ↓キー :下矢印入力
+; F13 + Shift + ↓キー :下矢印入力
 F13 & Down::
     if GetKeyState("Shift"){
-        Send,{Volume_Down}
-        return
+      Send,{U+2193}
+      return
     }
-    Send,{U+2193}
+    Send,{Blind}#{Tab}
     return
 
-; F13 + →キー : 右矢印入力
-; F13 + Shift + →キー : 次のメディア
+; F13 + →キー : 右側のデスクトップに移動
+; F13 + Shift + →キー : 右矢印キー
 F13 & Right::
     if GetKeyState("Shift"){
-        Send,{Media_Next}
-        return
+      Send,{U+2192}
+      return
     }
-    Send,{U+2192}
+    Send,{Blind}^#{Right}
     return
 
-; F13 + ←キー : 左矢印入力
-; F13 + Shift + ←キー : 前のメディア
+; F13 + ←キー : 左側のデスクトップに移動
+; F13 + Shift + ←キー : 左矢印入力
 F13 & Left::
     if GetKeyState("Shift"){
-        Send,{Media_Prev}
-        return
+      Send,{U+2190}
+      return
     }
-    Send,{U+2190}
+    Send,{Blind}^#{Left}
     return
+
+
+; F13 + PageUpキー : 音量UP
+F13 & PgUp:: Send,{Volume_Up}
+
+; F13 + PageDownキー : 音量Down
+F13 & PgDn:: Send,{Volume_Down}
 
 ; F13 + Endキー : ミュート/ミュート解除
 F13 & End:: Send,{Volume_Mute}
@@ -202,7 +209,7 @@ F14 & p::Run,pbrush.exe
 F14 & c::Run,control
 
 ; VS Codeを起動
-F14 & v::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
+F14 & v::Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
 
 ; Windows + Xメニュー
 F14 & x::Send,{Blind}#x
@@ -220,8 +227,8 @@ AppsKey & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Ch
 ; Todoistを起動: アプリケーションキー + Ctrl + T
 AppsKey & t::
     if GetKeyState("Control"){
-        Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Todoist.lnk"
-        return
+      Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Todoist.lnk"
+      return
     }
     Run,"C:\Program Files\Typora\Typora.exe"
     return
@@ -239,16 +246,16 @@ Appskey & d::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Pr
 Appskey & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
 
 ; OneNoteを起動: アプリケーションキー + Q
-Appskey & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk"
+Appskey & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote 2016.lnk"
 
 ; サクラエディタを起動: アプリケーションキー + S
 ; Slackを起動: アプリケーションキー + Ctrl + S
 AppsKey & s::
     if GetKeyState("Control"){
-        Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
-        return
+      Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
+      return
     }
-    Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\サクラエディタ.lnk"
+    Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\sakura-editor.lnk"
     return
 
 ; Xmindを起動: アプリケーションキー + X
@@ -259,7 +266,7 @@ Appskey & x::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Pr
 AppsKey & a::
     if GetKeyState("Control"){
 	  Run,"C:\Users\t_kot\AppData\Local\Asana\Asana.exe"
-        return
+      return
     }
     Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\A5M2.lnk"
     return
