@@ -167,6 +167,9 @@ F13 & Left::
 ; F13 + Endキー : ミュート/ミュート解除
 F13 & End:: Send,{Volume_Mute}
 
+; F13 + 右クリック : 中央クリック
+F13 & LButton:: MouseClick, Middle
+
 ; F14: 左クリック
 F14::Send,{LButton}
 
