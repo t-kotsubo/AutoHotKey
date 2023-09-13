@@ -49,7 +49,7 @@ F13 & Pause::
 ; F13 + Shift + r : やり直す(Ctrl + Shift + Z)
 F13 & r::
     if GetKeyState("Shift"){
-	Send,{Blind}^+z
+      Send,{Blind}^+z
       return
     }
     Send,{Blind}^z
@@ -134,8 +134,8 @@ F13 & Up::
     Send,{Blind}#{Tab}
     return
 
-; F13 + ↓キー :下矢印入力
-; F13 + Shift + ↓キー :下矢印入力
+; F13 + ↓キー : デスクトップ管理画面
+; F13 + Shift + ↓キー : 下矢印入力
 F13 & Down::
     if GetKeyState("Shift"){
       Send,{U+2193}
@@ -163,7 +163,6 @@ F13 & Left::
     }
     Send,{Blind}^#{Left}
     return
-
 
 ; F13 + PageUpキー : 音量UP
 F13 & PgUp:: Send,{Volume_Up}
