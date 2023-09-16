@@ -36,8 +36,8 @@ F13 & Delete::
 ; F13 + Shift + Pause : シャットダウン
 F13 & Pause::
     if GetKeyState("Shift"){
-	  Shutdown, 1 ; シャットダウン:1
-      return
+			Shutdown, 1 ; シャットダウン:1
+			return
     }
     Send,{Blind}^d
     Send,{Blind}#x
@@ -211,7 +211,7 @@ F14 & p::Run,pbrush.exe
 F14 & c::Run,control
 
 ; VS Codeを起動
-F14 & v::Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
+F14 & v::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
 
 ; Windows + Xメニュー
 F14 & x::Send,{Blind}#x
@@ -220,54 +220,54 @@ F14 & x::Send,{Blind}#x
 F14 & q::Send,{Blind}#!n
 
 ; アプリケーションキー設定
-AppsKey::Send,{AppsKey}
+F15::Send,{AppsKey}
 
 ; Chromeを起動：アプリケーションキー + C
-AppsKey & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
+F15 & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
 
 ; Typoraを起動: アプリケーションキー + T
 ; Todoistを起動: アプリケーションキー + Ctrl + T
-AppsKey & t::
+F15 & t::
     if GetKeyState("Control"){
-      Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Todoist.lnk"
+      Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Todoist.lnk"
       return
     }
     Run,"C:\Program Files\Typora\Typora.exe"
     return
 
 ; Kindleを起動: アプリケーションキー + R
-AppsKey & r::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Amazon\Amazon Kindle\Kindle.lnk"
+F15 & r::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Amazon\Amazon Kindle\Kindle.lnk"
 
 ; Excelを起動: アプリケーションキー + E
-AppsKey & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
+F15 & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
 
 ; Discordを起動: アプリケーションキー + D
-AppsKey & d::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk"
+F15 & d::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk"
 
 ; Wordを起動: アプリケーションキー + W
-AppsKey & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
+F15 & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
 
 ; OneNoteを起動: アプリケーションキー + Q
-AppsKey & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote 2016.lnk"
+F15 & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk"
 
 ; サクラエディタを起動: アプリケーションキー + S
 ; Slackを起動: アプリケーションキー + Ctrl + S
-AppsKey & s::
+F15 & s::
     if GetKeyState("Control"){
-      Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
+      Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
       return
     }
-    Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\sakura-editor.lnk"
+    Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\サクラエディタ.lnk"
     return
 
 ; Xmindを起動: アプリケーションキー + X
-AppsKey & x::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Xmind.lnk"
+F15 & x::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Xmind.lnk"
 
 ; A5M2を起動: アプリケーションキー + A
 ; Asanaを起動: アプリケーションキー + Ctrl + A
-AppsKey & a::
+F15 & a::
     if GetKeyState("Control"){
-	  Run,"C:\Users\t_kot\AppData\Local\Asana\Asana.exe"
+      Run,"C:\Users\t_kot\AppData\Local\Asana\Asana.exe"
       return
     }
     Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\A5M2.lnk"
@@ -275,7 +275,7 @@ AppsKey & a::
 
 ; Excel起動時のみ：値のみ貼り付け
 #ifWinActive ahk_exe EXCEL.EXE
-AppsKey & v::Send,{AppsKey}s{Enter}v{Enter}
+F15 & v::Send,{AppsKey}s{Enter}v{Enter}
 
 ; Excel起動時のみ：テーブルの枠線をつける
 #ifWinActive ahk_exe EXCEL.EXE
