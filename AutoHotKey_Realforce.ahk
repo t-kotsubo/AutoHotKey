@@ -238,6 +238,9 @@ F15 & t::
 ; Kindleを起動: アプリケーションキー + R
 F15 & r::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Amazon\Amazon Kindle\Kindle.lnk"
 
+; BlockSiteを起動: アプリケーションキー + B
+F15 & b::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\BlockSite.lnk"
+
 ; Excelを起動: アプリケーションキー + E
 F15 & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
 
