@@ -11,15 +11,33 @@ F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
 F13 & c::Send,{Blind}^c
 F13 & v::Send,{Blind}#!v ; Cliborのショートカットを呼び出し
-F13 & [::Send,{Blind}{Esc}
+F13 & [::Send,{Esc}
 F13 & sc01C::Send,{Blind}^{Enter} ; F13 + Enter: Ctrl + Enter
-F13 & b::Send,{Left}
-F13 & f::Send,{Right}
 F13 & @::Send,{Blind}+\ ; F13 + @: |(パイプ)入力
 F13 & sc073::Send,{Blind}^y ; F13 + / やり直す(Ctrl + Y)
 F13 & ScrollLock::Shutdown, 2 ; F13 + ScrollLock: 再起動
 F13 & PrintScreen:: ; F13 + PrintScreen: 休止モード
     DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
+    return
+
+; F13 + b : 左に移動(←)
+; F13 + Ctrl + b : 単語単位で左に移動(Ctrl + ←)
+F13 & b::
+    if GetKeyState("Ctrl"){
+        Send,{Blind}^{Left}
+        return
+    }
+    Send,{Left}
+    return
+
+; F13 + f : 右に移動(→)
+; F13 + Ctrl + f : 単語単位で右に移動(Ctrl + →)
+F13 & f::
+    if GetKeyState("Ctrl"){
+        Send,{Blind}^{Right}
+        return
+    }
+    Send,{Right}
     return
 
 ; F13 + Delete ; アプリを終了(ウィンドウ)を閉じる
@@ -36,8 +54,8 @@ F13 & Delete::
 ; F13 + Shift + Pause : シャットダウン
 F13 & Pause::
     if GetKeyState("Shift"){
-			Shutdown, 1 ; シャットダウン:1
-			return
+      Shutdown, 1 ; シャットダウン:1
+      return
     }
     Send,{Blind}^d
     Send,{Blind}#x
@@ -229,8 +247,8 @@ F15 & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome
 ; Todoistを起動: アプリケーションキー + Ctrl + T
 F15 & t::
     if GetKeyState("Control"){
-			Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Todoist.lnk"
-			return
+        Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Todoist.lnk"
+        return
     }
     Run,"C:\Program Files\Typora\Typora.exe"
     return
@@ -257,8 +275,8 @@ F15 & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk"
 ; Slackを起動: アプリケーションキー + Ctrl + S
 F15 & s::
     if GetKeyState("Control"){
-			Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
-			return
+        Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
+        return
     }
     Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\サクラエディタ.lnk"
     return
