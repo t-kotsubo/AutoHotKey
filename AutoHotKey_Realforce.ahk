@@ -11,6 +11,8 @@ F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
 F13 & c::Send,{Blind}^c
 F13 & v::Send,{Blind}#!v ; Cliborのショートカットを呼び出し
+; F13 + ;(セミコロン): 1行を丸ごとコピー
+F13 & `;::Send,{Blind}{Home}{Shift Down}{End}{Shift Up}^c{End}
 F13 & [::Send,{Esc}
 F13 & sc01C::Send,{Blind}^{Enter} ; F13 + Enter: Ctrl + Enter
 F13 & @::Send,{Blind}+\ ; F13 + @: |(パイプ)入力
