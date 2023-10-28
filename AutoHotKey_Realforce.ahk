@@ -245,6 +245,9 @@ F15::Send,{AppsKey}
 ; Chromeを起動：アプリケーションキー + C
 F15 & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
 
+; GOM Playerを起動：アプリケーションキー + G
+F15 & g::Run,"C:\Program Files\GOM\GOMPlayerPlus\GOM64.EXE"
+
 ; Typoraを起動: アプリケーションキー + T
 ; Todoistを起動: アプリケーションキー + Ctrl + T
 F15 & t::
