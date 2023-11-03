@@ -230,26 +230,23 @@ F14 & p::Run,pbrush.exe
 ; コントロールパネルを開く
 F14 & c::Run,control
 
-; VS Codeを起動
-F14 & v::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
-
 ; Windows + Xメニュー
 F14 & x::Send,{Blind}#x
 
 ; OneNote クイックノートを起動する
 F14 & q::Send,{Blind}#!n
 
-; アプリケーションキー設定
+; F15キー設定
 F15::Send,{AppsKey}
 
-; Chromeを起動：アプリケーションキー + C
+; Chromeを起動：F15キー + C
 F15 & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
 
 ; GOM Playerを起動：アプリケーションキー + G
 F15 & g::Run,"C:\Program Files\GOM\GOMPlayerPlus\GOM64.EXE"
 
-; Typoraを起動: アプリケーションキー + T
-; Todoistを起動: アプリケーションキー + Ctrl + T
+; Typoraを起動: F15キー + T
+; Todoistを起動: F15キー + Ctrl + T
 F15 & t::
     if GetKeyState("Control"){
         Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Todoist.lnk"
@@ -258,26 +255,26 @@ F15 & t::
     Run,"C:\Program Files\Typora\Typora.exe"
     return
 
-; Kindleを起動: アプリケーションキー + R
+; Kindleを起動: F15キー + R
 F15 & r::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Amazon\Amazon Kindle\Kindle.lnk"
 
-; BlockSiteを起動: アプリケーションキー + B
+; BlockSiteを起動: F15キー + B
 F15 & b::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\BlockSite.lnk"
 
-; Excelを起動: アプリケーションキー + E
+; Excelを起動: F15キー + E
 F15 & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
 
-; Discordを起動: アプリケーションキー + D
+; Discordを起動: F15キー + D
 F15 & d::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk"
 
-; Wordを起動: アプリケーションキー + W
+; Wordを起動: F15キー + W
 F15 & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
 
-; OneNoteを起動: アプリケーションキー + Q
+; OneNoteを起動: F15キー + Q
 F15 & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote.lnk"
 
-; サクラエディタを起動: アプリケーションキー + S
-; Slackを起動: アプリケーションキー + Ctrl + S
+; サクラエディタを起動: F15キー + S
+; Slackを起動: F15キー + Ctrl + S
 F15 & s::
     if GetKeyState("Control"){
         Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
@@ -286,17 +283,27 @@ F15 & s::
     Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\サクラエディタ.lnk"
     return
 
-; Xmindを起動: アプリケーションキー + X
+; Xmindを起動: F15キー + X
 F15 & x::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Xmind.lnk"
 
-; A5M2を起動: アプリケーションキー + A
-; Asanaを起動: アプリケーションキー + Ctrl + A
+; A5M2を起動: F15キー + A
+; Asanaを起動: F15キー + Ctrl + A
 F15 & a::
     if GetKeyState("Control"){
 			Run,"C:\Users\t_kot\AppData\Local\Asana\Asana.exe"
 			return
     }
     Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\A5M2.lnk"
+    return
+
+; VS Codeを起動: F15キー + V
+; Visual Studio 2022を起動: F15キー + Ctrl + V
+F15 & v::
+    if GetKeyState("Control"){
+        Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2022.lnk"
+        return
+    }
+    Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
     return
 
 ; Excel起動時のみ：値のみ貼り付け
