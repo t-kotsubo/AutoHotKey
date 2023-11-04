@@ -209,8 +209,8 @@ F14 & 5::Send,{F5}
 ; スクリーンショット(Windows + Shift + S)
 F14 & s::Send,{Blind}#+s
 
-; 画面動画をキャプチャー(Windows + Alt + R)
-F14 & r::Send,{Blind}#!r
+; 画面動画をキャプチャー(RecExpertsを起動)
+F14 & r::Run,"C:\Program Files (x86)\EaseUS\RecExperts\bin"
 
 ; ターミナルを起動
 F14 & t::Run,wt.exe
@@ -231,7 +231,7 @@ F14 & p::Run,pbrush.exe
 F14 & c::Run,control
 
 ; VS Codeを起動
-F14 & v::Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
+F14 & v::Run,"C:\Users\USER\AppData\Local\Programs\Microsoft VS Code\Code.exe"
 
 ; Windows + Xメニュー
 F14 & x::Send,{Blind}#x
@@ -259,19 +259,19 @@ AppsKey & t::
     return
 
 ; Kindleを起動: アプリケーションキー + R
-AppsKey & r::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Amazon\Amazon Kindle\Kindle.lnk"
+Appskey & r::Run,"C:\Users\USER\AppData\Local\Amazon\Kindle\application\Kindle.exe"
 
 ; Excelを起動: アプリケーションキー + E
-AppsKey & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
+Appskey & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
 
 ; Discordを起動: アプリケーションキー + D
-AppsKey & d::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk"
+Appskey & d::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk"
 
 ; Wordを起動: アプリケーションキー + W
-AppsKey & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
+Appskey & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
 
 ; OneNoteを起動: アプリケーションキー + Q
-AppsKey & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote 2016.lnk"
+Appskey & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote 2016.lnk"
 
 ; サクラエディタを起動: アプリケーションキー + S
 ; Slackを起動: アプリケーションキー + Ctrl + S
@@ -284,7 +284,7 @@ AppsKey & s::
     return
 
 ; Xmindを起動: アプリケーションキー + X
-AppsKey & x::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Xmind.lnk"
+Appskey & x::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Xmind.lnk"
 
 ; A5M2を起動: アプリケーションキー + A
 ; Asanaを起動: アプリケーションキー + Ctrl + A
