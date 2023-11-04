@@ -230,9 +230,6 @@ F14 & p::Run,pbrush.exe
 ; コントロールパネルを開く
 F14 & c::Run,control
 
-; VS Codeを起動
-F14 & v::Run,"C:\Users\USER\AppData\Local\Programs\Microsoft VS Code\Code.exe"
-
 ; Windows + Xメニュー
 F14 & x::Send,{Blind}#x
 
@@ -294,6 +291,16 @@ AppsKey & a::
       return
     }
     Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\A5M2.lnk"
+    return
+
+; VS Codeを起動: F15キー + V
+; Visual Studio 2022を起動: F15キー + Ctrl + V
+F15 & v::
+    if GetKeyState("Control"){
+        Run,"C:\Users\USER\AppData\Local\Programs\Microsoft VS Code\Code.exe"
+        return
+    }
+    Run,"C:\Users\USER\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
     return
 
 ; Excel起動時のみ：値のみ貼り付け
