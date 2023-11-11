@@ -239,6 +239,9 @@ F14 & q::Send,{Blind}#!n
 ; F15キー設定
 F15::Send,{AppsKey}
 
+; Notionを起動：F15キー + 1
+F15 & 1::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Notion.lnk"
+
 ; Chromeを起動：F15キー + C
 F15 & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
 

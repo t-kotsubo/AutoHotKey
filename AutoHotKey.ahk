@@ -239,6 +239,9 @@ F14 & q::Send,{Blind}#!n
 ; アプリケーションキー設定
 AppsKey::Send,{AppsKey}
 
+; Notionを起動：AppsKeyキー + 1
+AppsKey & 1::Run,"C:\Users\USER\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Notion.lnk"
+
 ; Chromeを起動：アプリケーションキー + C
 AppsKey & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
 
