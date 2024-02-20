@@ -194,17 +194,17 @@ F13 & PgDn:: Send,{Volume_Down}
 F13 & End:: Send,{Volume_Mute}
 
 ; 中央クリック: F13 + Shift + 左クリック
-; タブを左に移動: F13 + 右クリック
+; タブを左に移動: F13 + 左クリック
 F13 & LButton::
     if GetKeyState("Shift"){
       MouseClick, Middle
       return
     }
-    Send,{Blind}{Ctrl Down}{Shift Down}{Tab}{Shift Up}{Ctrl Up}
+    Send,^{PgUp}
     return
 
 ; タブを右に移動: F13 + 右クリック
-F13 & RButton:: Send,{Blind}{Ctrl Down}{Tab}{Ctrl Up}
+F13 & RButton:: Send,^{PgDn}
 
 ; F14: 左クリック
 F14::Send,{LButton}
