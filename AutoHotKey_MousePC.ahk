@@ -193,8 +193,18 @@ F13 & PgDn:: Send,{Volume_Down}
 ; F13 + Endキー : ミュート/ミュート解除
 F13 & End:: Send,{Volume_Mute}
 
-; F13 + 右クリック : 中央クリック
-F13 & LButton:: MouseClick, Middle
+; 中央クリック: F13 + Shift + 左クリック
+; タブを左に移動: F13 + 右クリック
+F13 & LButton::
+    if GetKeyState("Shift"){
+      MouseClick, Middle
+      return
+    }
+    Send,{Blind}{Ctrl Down}{Shift Down}{Tab}{Shift Up}{Ctrl Up}
+    return
+
+; タブを右に移動: F13 + 右クリック
+F13 & RButton:: Send,{Blind}{Ctrl Down}{Tab}{Ctrl Up}
 
 ; F14: 左クリック
 F14::Send,{LButton}
@@ -209,8 +219,8 @@ F14 & 5::Send,{F5}
 ; スクリーンショット(Windows + Shift + S)
 F14 & s::Send,{Blind}#+s
 
-; 画面動画をキャプチャー(Windows + Alt + R)
-F14 & r::Send,{Blind}#!r
+; 画面動画をキャプチャー(RecExpertsを起動)
+F14 & r::Run,"C:\Program Files (x86)\EaseUS\RecExperts\bin\RecExperts.exe"
 
 ; ターミナルを起動
 F14 & t::Run,wt.exe
