@@ -193,18 +193,25 @@ F13 & PgDn:: Send,{Volume_Down}
 ; F13 + Endキー : ミュート/ミュート解除
 F13 & End:: Send,{Volume_Mute}
 
+; タブを左に移動: F13 + 左クリック
 ; 中央クリック: F13 + Shift + 左クリック
-; タブを左に移動: F13 + 右クリック
 F13 & LButton::
     if GetKeyState("Shift"){
-      MouseClick, Middle
-      return
+        MouseClick, Middle
+        return
     }
     Send,{Blind}{Ctrl Down}{Shift Down}{Tab}{Shift Up}{Ctrl Up}
     return
 
 ; タブを右に移動: F13 + 右クリック
-F13 & RButton:: Send,{Blind}{Ctrl Down}{Tab}{Ctrl Up}
+; アプリを終了(Alt + F4): F13 + Shift + 右クリック
+F13 & RButton::
+    if GetKeyState("Shift"){
+        Send,{Blind}!{F4}
+        return
+    }
+    Send,{Blind}{Ctrl Down}{Tab}{Ctrl Up}
+    return
 
 ; F14: 左クリック
 F14::Send,{LButton}
