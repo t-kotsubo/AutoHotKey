@@ -196,7 +196,7 @@ F13 & End:: Send,{Volume_Mute}
 ; タブを左に移動: F13 + 左クリック
 ; 中央クリック: F13 + Shift + 左クリック
 F13 & LButton::
-    if GetKeyState("Shift"){
+    if GetKeyState("Control"){
         MouseClick, Middle
         return
     }
