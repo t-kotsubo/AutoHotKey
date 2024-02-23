@@ -194,17 +194,17 @@ F13 & PgDn:: Send,{Volume_Down}
 F13 & End:: Send,{Volume_Mute}
 
 ; 中央クリック: F13 + Shift + 左クリック
-; タブを左に移動: F13 + 右クリック
+; タブを左に移動: F13 + 左クリック
 F13 & LButton::
     if GetKeyState("Shift"){
       MouseClick, Middle
       return
     }
-    Send,{Blind}{Ctrl Down}{Shift Down}{Tab}{Shift Up}{Ctrl Up}
+    Send,^{PgUp}
     return
 
 ; タブを右に移動: F13 + 右クリック
-F13 & RButton:: Send,{Blind}{Ctrl Down}{Tab}{Ctrl Up}
+F13 & RButton:: Send,^{PgDn}
 
 ; F14: 左クリック
 F14::Send,{LButton}
@@ -250,7 +250,7 @@ F14 & q::Send,{Blind}#!n
 AppsKey::Send,{AppsKey}
 
 ; Notionを起動：AppsKeyキー + 1
-AppsKey & 1::Run,"C:\Users\USER\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Notion.lnk"
+AppsKey & 1::Run,"C:\Users\USER\AppData\Local\Programs\Notion\Notion.exe"
 
 ; Chromeを起動：アプリケーションキー + C
 AppsKey & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
