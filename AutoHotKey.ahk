@@ -274,8 +274,8 @@ Appskey & r::Run,"C:\Users\USER\AppData\Local\Amazon\Kindle\application\Kindle.e
 ; Excelを起動: アプリケーションキー + E
 Appskey & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
 
-; Discordを起動: アプリケーションキー + D
-Appskey & d::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk"
+; Docker Desktopを起動: アプリケーションキー + D
+Appskey & d::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Docker Desktop.lnk"
 
 ; Wordを起動: アプリケーションキー + W
 Appskey & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
@@ -306,9 +306,9 @@ AppsKey & a::
     Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\A5M2.lnk"
     return
 
-; VS Codeを起動: F15キー + V
-; Visual Studio 2022を起動: F15キー + Ctrl + V
-F15 & v::
+; VS Codeを起動: AppsKeyキー + V
+; Visual Studio 2022を起動: AppsKeyキー + Ctrl + V
+AppsKey & v::
     if GetKeyState("Control"){
         Run,"C:\Users\USER\AppData\Local\Programs\Microsoft VS Code\Code.exe"
         return

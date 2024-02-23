@@ -277,8 +277,8 @@ AppsKey & b::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\BlockSite
 ; Excelを起動: AppsKeyキー + E
 AppsKey & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
 
-; Discordを起動: AppsKeyキー + D
-AppsKey & d::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk"
+; Docker Desktopを起動: アプリケーションキー + D
+AppsKey & d::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Docker Desktop.lnk"
 
 ; Wordを起動: AppsKeyキー + W
 AppsKey & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
