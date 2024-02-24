@@ -194,8 +194,13 @@ F13 & PgDn:: Send,{Volume_Down}
 F13 & End:: Send,{Volume_Mute}
 
 ; タブを左に移動: F13 + 左クリック
-; 中央クリック: F13 + Shift + 左クリック
+; スクリーンショット: F13 + Shift + 左クリック
+; 中央クリック: F13 + Control + 左クリック
 F13 & LButton::
+    if GetKeyState("Shift"){
+        Send,{Blind}#+s
+        return
+    }
     if GetKeyState("Control"){
         MouseClick, Middle
         return
@@ -204,10 +209,15 @@ F13 & LButton::
     return
 
 ; タブを右に移動: F13 + 右クリック
-; アプリを終了(Alt + F4): F13 + Shift + 右クリック
+; 画面動画をキャプチャー(RecExpertsを起動): F13 + Shift + 右クリック
+; メモ帳を起動: F13 + Control + 右クリック
 F13 & RButton::
     if GetKeyState("Shift"){
-        Send,{Blind}!{F4}
+        Run,"C:\Program Files (x86)\EaseUS\RecExperts\bin\RecExperts.exe"
+        return
+    }
+    if GetKeyState("Control"){
+        Run,notepad.exe
         return
     }
     Send,{Blind}{Ctrl Down}{Tab}{Ctrl Up}
