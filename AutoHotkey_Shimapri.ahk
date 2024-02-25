@@ -205,7 +205,7 @@ F13 & LButton::
         MouseClick, Middle
         return
     }
-    Send,{Blind}{Ctrl Down}{Shift Down}{Tab}{Shift Up}{Ctrl Up}
+    Send,{Blind}{Ctrl Down}{PgUp}{Ctrl Up}
     return
 
 ; タブを右に移動: F13 + 右クリック
@@ -220,7 +220,7 @@ F13 & RButton::
         Run,notepad.exe
         return
     }
-    Send,{Blind}{Ctrl Down}{Tab}{Ctrl Up}
+    Send,{Blind}{Ctrl Down}{PgDn}{Ctrl Up}
     return
 
 ; F14: 左クリック
@@ -236,7 +236,7 @@ F14 & 5::Send,{F5}
 ; スクリーンショット(Windows + Shift + S)
 F14 & s::Send,{Blind}#+s
 
-; 画面動画をキャプチャー(RecExpertsを起動)
+; 画面動画をキャプチャー(Windows + Alt + R)
 F14 & r::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\EaseUS RecExperts\EaseUS RecExperts.lnk"
 
 ; ターミナルを起動
@@ -265,9 +265,6 @@ F14 & q::Send,{Blind}#!n
 
 ; アプリケーションキー設定
 AppsKey::Send,{AppsKey}
-
-; Notionを起動：AppsKeyキー + 1
-AppsKey & 1::Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Notion.lnk"
 
 ; BlockSiteを起動：アプリケーションキー + B
 AppsKey & b::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\BlockSite.lnk"
@@ -330,7 +327,7 @@ AppsKey & a::
 ; Visual Studio 2022を起動: AppsKeyキー + Ctrl + V
 AppsKey & v::
     if GetKeyState("Control"){
-        Run,"C:\Users\takayuki_kotsubo\AppData\Local\Programs\Microsoft VS Code\Code.exe"
+        Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2022.lnk"
         return
     }
     Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
