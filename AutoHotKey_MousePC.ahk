@@ -205,7 +205,7 @@ F13 & LButton::
         MouseClick, Middle
         return
     }
-    Send,{Blind}{Ctrl Down}{Shift Down}{Tab}{Shift Up}{Ctrl Up}
+    Send,{Blind}{Ctrl Down}{PgUp}{Ctrl Up}
     return
 
 ; タブを右に移動: F13 + 右クリック
@@ -220,7 +220,7 @@ F13 & RButton::
         Run,notepad.exe
         return
     }
-    Send,{Blind}{Ctrl Down}{Tab}{Ctrl Up}
+    Send,{Blind}{Ctrl Down}{PgDn}{Ctrl Up}
     return
 
 ; F14: 左クリック
@@ -338,7 +338,7 @@ AppsKey & v::
 
 ; Excel起動時のみ：値のみ貼り付け
 #ifWinActive ahk_exe EXCEL.EXE
-AppsKey & v::Send,{Appskey}s{Enter}v{Enter}
+AppsKey & v::Send,{AppsKey}s{Enter}v{Enter}
 
 ; Excel起動時のみ：テーブルの枠線をつける
 #ifWinActive ahk_exe EXCEL.EXE
