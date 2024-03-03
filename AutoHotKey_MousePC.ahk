@@ -288,9 +288,6 @@ AppsKey & t::
 ; Kindleを起動: AppsKeyキー + R
 AppsKey & r::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Amazon\Amazon Kindle\Kindle.lnk"
 
-; BlockSiteを起動: AppsKeyキー + B
-AppsKey & b::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\BlockSite.lnk"
-
 ; Excelを起動: AppsKeyキー + E
 AppsKey & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
 
