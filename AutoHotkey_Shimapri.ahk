@@ -213,11 +213,11 @@ F13 & LButton::
 ; メモ帳を起動: F13 + Control + 右クリック
 F13 & RButton::
     if GetKeyState("Shift"){
-        Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\EaseUS RecExperts\EaseUS RecExperts.lnk"
+        Run,notepad.exe
         return
     }
     if GetKeyState("Control"){
-        Run,notepad.exe
+        Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\EaseUS RecExperts\EaseUS RecExperts.lnk"
         return
     }
     Send,{Blind}{Ctrl Down}{PgDn}{Ctrl Up}
@@ -266,8 +266,8 @@ F14 & q::Send,{Blind}#!n
 ; アプリケーションキー設定
 AppsKey::Send,{AppsKey}
 
-; BlockSiteを起動：アプリケーションキー + B
-AppsKey & b::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\BlockSite.lnk"
+; Notionを起動：AppsKeyキー + 1
+AppsKey & 1::Run,"C:\Users\takayuki_kotsubo\AppData\Local\Programs\Notion\Notion.exe"
 
 ; Chromeを起動：アプリケーションキー + C
 AppsKey & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
