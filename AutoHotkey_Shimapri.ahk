@@ -209,8 +209,8 @@ F13 & LButton::
     return
 
 ; タブを右に移動: F13 + 右クリック
-; メモ帳を起動: F13 + Shift + 右クリック
-; 画面動画をキャプチャー(RecExpertsを起動): F13 + Control + 右クリック
+; 画面動画をキャプチャー(RecExpertsを起動): F13 + Shift + 右クリック
+; メモ帳を起動: F13 + Control + 右クリック
 F13 & RButton::
     if GetKeyState("Shift"){
         Run,notepad.exe
@@ -292,7 +292,14 @@ AppsKey & r::Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\St
 AppsKey & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
 
 ; Dockerを起動: アプリケーションキー + D
-AppsKey & d::Run,"C:\Program Files\Docker\Docker\Docker Desktop.exe"
+; DBeaverを起動: アプリケーションキー + Ctrl + D
+AppsKey & d::
+    if GetKeyState("Control"){
+      Run,"C:\Users\takayuki_kotsubo\AppData\Local\DBeaver\dbeaver.exe"
+      return
+    }
+    Run,"C:\Program Files\Docker\Docker\Docker Desktop.exe"
+    return
 
 ; Wordを起動: アプリケーションキー + W
 AppsKey & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
