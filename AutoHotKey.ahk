@@ -46,7 +46,7 @@ F13 & f::
 ; F13 + Shift + Delete : 全てのウィンドウを閉じる(CloseAllのアプリを実行)
 F13 & Delete::
     if GetKeyState("Shift"){
-        Run,"C:\ShortCut\CloseAll.exe.lnk"
+        Run,"C:\Program Files\CloseAll\CloseAll.exe"
         return
     }
     Send,{Blind}!{F4}
@@ -267,51 +267,51 @@ F14 & q::Send,{Blind}#!n
 AppsKey::Send,{AppsKey}
 
 ; Notionを起動：AppsKeyキー + 1
-AppsKey & 1::Run,"C:\Users\USER\AppData\Local\Programs\Notion\Notion.exe"
+AppsKey & 1::Run,"C:\Users\t_kot\AppData\Local\Programs\Notion\Notion.exe"
 
 ; Chromeを起動：アプリケーションキー + C
 AppsKey & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
 
 ; GOM Playerを起動：アプリケーションキー + G
-AppsKey & g::Run,"C:\Program Files\GOM\GOMPlayerPlus\GOM64.EXE"
+AppsKey & g::Run,"C:\Program Files (x86)\GOM\GOMPlayer\GOM.exe"
 
 ; Typoraを起動: アプリケーションキー + T
 ; Todoistを起動: アプリケーションキー + Ctrl + T
 AppsKey & t::
     if GetKeyState("Control"){
-      Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Todoist.lnk"
+      Run,"C:\Users\t_kot\AppData\Local\Programs\todoist\Todoist.exe"
       return
     }
     Run,"C:\Program Files\Typora\Typora.exe"
     return
 
 ; Kindleを起動: アプリケーションキー + R
-Appskey & r::Run,"C:\Users\USER\AppData\Local\Amazon\Kindle\application\Kindle.exe"
+Appskey & r::Run,"C:\Users\t_kot\AppData\Local\Amazon\Kindle\application\Kindle.exe"
 
 ; Excelを起動: アプリケーションキー + E
-Appskey & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
+Appskey & e::Run,"C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE"
 
 ; Docker Desktopを起動: アプリケーションキー + D
-Appskey & d::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Docker Desktop.lnk"
+Appskey & d::Run,"C:\Program Files\Docker\Docker\Docker Desktop.exe"
 
 ; Wordを起動: アプリケーションキー + W
-Appskey & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
+Appskey & w::Run,"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
 
 ; OneNoteを起動: アプリケーションキー + Q
-Appskey & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote 2016.lnk"
+Appskey & q::Run,"C:\Program Files\Microsoft Office\root\Office16\ONENOTE.EXE"
 
 ; サクラエディタを起動: アプリケーションキー + S
 ; Slackを起動: アプリケーションキー + Ctrl + S
 AppsKey & s::
     if GetKeyState("Control"){
-      Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
+      Run,"C:\Users\t_kot\AppData\Local\slack\slack.exe"
       return
     }
-    Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\sakura-editor.lnk"
+    Run,"C:\Program Files (x86)\sakura\sakura.exe"
     return
 
 ; Xmindを起動: アプリケーションキー + X
-Appskey & x::Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Xmind.lnk"
+Appskey & x::Run,"C:\Users\t_kot\AppData\Local\Programs\Xmind\Xmind.exe"
 
 ; A5M2を起動: アプリケーションキー + A
 ; Asanaを起動: アプリケーションキー + Ctrl + A
@@ -327,10 +327,10 @@ AppsKey & a::
 ; Visual Studio 2022を起動: AppsKeyキー + Ctrl + V
 AppsKey & v::
     if GetKeyState("Control"){
-        Run,"C:\Users\USER\AppData\Local\Programs\Microsoft VS Code\Code.exe"
+        Run,"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe"
         return
     }
-    Run,"C:\Users\USER\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
+    Run,"C:\Users\t_kot\AppData\Local\Programs\Microsoft VS Code\Code.exe"
     return
 
 ; Excel起動時のみ：値のみ貼り付け
