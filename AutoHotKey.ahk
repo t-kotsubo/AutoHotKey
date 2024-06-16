@@ -213,11 +213,11 @@ F13 & LButton::
 ; メモ帳を起動: F13 + Control + 右クリック
 F13 & RButton::
     if GetKeyState("Shift"){
-        Run,"C:\Program Files (x86)\EaseUS\RecExperts\bin\RecExperts.exe"
+        Run,notepad.exe
         return
     }
     if GetKeyState("Control"){
-        Run,notepad.exe
+        Run,"C:\Program Files (x86)\EaseUS\RecExperts\bin\RecExperts.exe"
         return
     }
     Send,{Blind}{Ctrl Down}{PgDn}{Ctrl Up}
