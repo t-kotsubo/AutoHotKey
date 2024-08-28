@@ -302,7 +302,7 @@ AppsKey & d::
     return
 
 ; Wordを起動: アプリケーションキー + W
-AppsKey & w::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Word.lnk"
+AppsKey & w::Run,"C:\Program Files\WinMerge\WinMergeU.exe"
 
 ; OneNoteを起動: アプリケーションキー + Q
 AppsKey & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote 2016.lnk"
