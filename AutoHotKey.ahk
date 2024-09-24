@@ -233,11 +233,11 @@ F14 & 3::Send,{F3}
 F14 & 4::Send,{F4}
 F14 & 5::Send,{F5}
 
-; スクリーンショット(Windows + Shift + S)
-F14 & s::Send,{Blind}#+s
-
 ; 画面動画をキャプチャー(RecExpertsを起動)
 F14 & r::Run,"C:\Program Files (x86)\EaseUS\RecExperts\bin\RecExperts.exe"
+
+; サクラエディタを起動
+F14 & s::Run,"C:\Program Files (x86)\sakura\sakura.exe"
 
 ; ターミナルを起動
 F14 & t::Run,wt.exe
@@ -273,7 +273,7 @@ AppsKey & 1::Run,"C:\Users\t_kot\AppData\Local\Programs\Notion\Notion.exe"
 AppsKey & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
 
 ; GOM Playerを起動：アプリケーションキー + G
-AppsKey & g::Run,"C:\Program Files (x86)\GOM\GOMPlayer\GOM.exe"
+AppsKey & g::Run,"C:\Program Files\GOM\GOMPlayer+2024\GOM64.EXE"
 
 ; Typoraを起動: アプリケーションキー + T
 ; Todoistを起動: アプリケーションキー + Ctrl + T
@@ -300,14 +300,14 @@ Appskey & w::Run,"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
 ; OneNoteを起動: アプリケーションキー + Q
 Appskey & q::Run,"C:\Program Files\Microsoft Office\root\Office16\ONENOTE.EXE"
 
-; サクラエディタを起動: アプリケーションキー + S
+; Sticky Notes(new)を起動: アプリケーションキー + S
 ; Slackを起動: アプリケーションキー + Ctrl + S
 AppsKey & s::
     if GetKeyState("Control"){
       Run,"C:\Users\t_kot\AppData\Local\slack\slack.exe"
       return
     }
-    Run,"C:\Program Files (x86)\sakura\sakura.exe"
+    Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Sticky Notes (new).lnk"
     return
 
 ; Xmindを起動: アプリケーションキー + X
