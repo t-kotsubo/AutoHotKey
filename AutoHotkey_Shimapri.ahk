@@ -7,7 +7,7 @@ F13 & m::Send,{Blind}{Enter}
 F13 & i::Send,{Blind}^i
 F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
-F13 & v::Send,{Blind}#!v ; Cliborのショートカットを呼び出し
+F13 & z::Send,{Blind}#!z ; Cliborのショートカットを呼び出し
 ; F13 + ;(セミコロン): 1行を丸ごとコピー
 F13 & `;::Send,{Blind}{Home}{Shift Down}{End}{Shift Up}^c{End}
 F13 & [::Send,{Esc}
@@ -152,11 +152,11 @@ F13 & k::
     Send,{Blind}{Shift Down}{End}{Shift Up}{Backspace}
     return
 
-; F13 + y : 貼り付け(Ctrl + v)
-; F13 + Shift + y : 前に行を挿入して貼り付け
-F13 & y::
+; F13 + v : 貼り付け(Ctrl + v)
+; F13 + Shift + v : 前に行を挿入して貼り付け
+F13 & v::
     if GetKeyState("Shift"){
-      Send,{Blind}{Shift Up}{Home}{Enter}{Up}^v
+      Send,{Home}{Enter}{Up}^v
       return
     }
     Send,{Blind}^v
