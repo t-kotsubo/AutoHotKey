@@ -1,7 +1,5 @@
 F13 & p::Send,{Up}
 F13 & n::Send,{Down}
-F13 & a::Send,{Home}
-F13 & e::Send,{End}
 F13 & 0::Send,{Home}
 F13 & h::Send,{Backspace}
 F13 & l::Send,{Blind}^l
@@ -9,8 +7,7 @@ F13 & m::Send,{Blind}{Enter}
 F13 & i::Send,{Blind}^i
 F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
-F13 & c::Send,{Blind}^c
-F13 & v::Send,{Blind}#!v ; Cliborのショートカットを呼び出し
+F13 & z::Send,{Blind}#!z ; Cliborのショートカットを呼び出し
 ; F13 + ;(セミコロン): 1行を丸ごとコピー
 F13 & `;::Send,{Blind}{Home}{Shift Down}{End}{Shift Up}^c{End}
 F13 & [::Send,{Esc}
@@ -22,6 +19,16 @@ F13 & PrintScreen:: ; F13 + PrintScreen: 休止モード
     DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
     return
 
+; F13 + a : 行の先頭に移動
+; F13 + Shift + a : カーソル位置から文頭までを一括選択
+F13 & a::
+    if GetKeyState("Shift"){
+	  Send,{Blind}{Shift Down}{Home}{Shift Up}
+      return
+    }
+    Send,{Home}
+    return
+
 ; F13 + b : 左に移動(←)
 ; F13 + Ctrl + b : 単語単位で左に移動(Ctrl + ←)
 F13 & b::
@@ -30,6 +37,26 @@ F13 & b::
         return
     }
     Send,{Left}
+    return
+
+; F13 + e : 行の末尾に移動
+; F13 + Shift + e : カーソル位置から文末までを一括選択
+F13 & e::
+    if GetKeyState("Shift"){
+	  Send,{Blind}{Shift Down}{End}{Shift Up}
+      return
+    }
+    Send,{End}
+    return
+
+; F13 + c : 選択範囲をコピー(Ctrl + cと同じ)
+; F13 + Shift + c : クリップボードに履歴を残してカーソル位置から文頭までを一括コピー
+F13 & c::
+    if GetKeyState("Shift"){
+	  Send,{Home}{Blind}{Shift Down}{End}{Shift Up}^c
+      return
+    }
+    Send,{Blind}^c
     return
 
 ; F13 + f : 右に移動(→)
@@ -125,11 +152,11 @@ F13 & k::
     Send,{Blind}{Shift Down}{End}{Shift Up}{Backspace}
     return
 
-; F13 + y : 貼り付け(Ctrl + v)
-; F13 + Shift + y : 前に行を挿入して貼り付け
-F13 & y::
+; F13 + v : 貼り付け(Ctrl + v)
+; F13 + Shift + v : 前に行を挿入して貼り付け
+F13 & v::
     if GetKeyState("Shift"){
-      Send,{Blind}{Shift Up}{Home}{Enter}{Up}^v
+      Send,{Home}{Enter}{Up}^v
       return
     }
     Send,{Blind}^v
@@ -294,8 +321,8 @@ Appskey & e::Run,"C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE"
 ; Docker Desktopを起動: アプリケーションキー + D
 Appskey & d::Run,"C:\Program Files\Docker\Docker\Docker Desktop.exe"
 
-; Wordを起動: アプリケーションキー + W
-Appskey & w::Run,"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
+; WinMergeを起動: アプリケーションキー + W
+Appskey & w::Run,"C:\Program Files (x86)\WinMerge\WinMergeU.exe"
 
 ; OneNoteを起動: アプリケーションキー + Q
 Appskey & q::Run,"C:\Program Files\Microsoft Office\root\Office16\ONENOTE.EXE"
