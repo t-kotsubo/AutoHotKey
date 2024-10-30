@@ -21,10 +21,14 @@ F13 & PrintScreen:: ; F13 + PrintScreen: 休止モード
 
 ; F13 + a : 行の先頭に移動
 ; F13 + Shift + a : カーソル位置から文頭までを一括選択
+; F13 + Control + a : ドキュメントの先頭に移動
 F13 & a::
     if GetKeyState("Shift"){
 	  Send,{Blind}{Shift Down}{Home}{Shift Up}
       return
+    } else if GetKeyState("Ctrl"){
+        Send,{Blind}^{Home}
+        return
     }
     Send,{Home}
     return
@@ -41,10 +45,14 @@ F13 & b::
 
 ; F13 + e : 行の末尾に移動
 ; F13 + Shift + e : カーソル位置から文末までを一括選択
+; F13 + Control + e : ドキュメントの末尾に移動
 F13 & e::
     if GetKeyState("Shift"){
 	  Send,{Blind}{Shift Down}{End}{Shift Up}
       return
+    } else if GetKeyState("Ctrl"){
+        Send,{Blind}^{End}
+        return
     }
     Send,{End}
     return
