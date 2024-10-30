@@ -1,5 +1,3 @@
-F13 & p::Send,{Up}
-F13 & n::Send,{Down}
 F13 & 0::Send,{Home}
 F13 & h::Send,{Backspace}
 F13 & l::Send,{Blind}^l
@@ -85,6 +83,26 @@ F13 & Delete::
         return
     }
     Send,{Blind}!{F4}
+    return
+
+; F13 + n ; 下に移動
+; F13 + Shift + n : 選択範囲を指定したまま下に移動
+F13 & n::
+    if GetKeyState("Shift"){
+        Send,{Blind}+{Down}
+        return
+    }
+    Send,{Down}
+    return
+
+; F13 + p ; 上に移動
+; F13 + Shift + p : 選択範囲を指定したまま上に移動
+F13 & p::
+    if GetKeyState("Shift"){
+        Send,{Blind}+{Up}
+        return
+    }
+    Send,{Up}
     return
 
 ; F13 + Pause ; スリープ
