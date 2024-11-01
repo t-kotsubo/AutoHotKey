@@ -5,7 +5,7 @@ F13 & m::Send,{Blind}{Enter}
 F13 & i::Send,{Blind}^i
 F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
-; F13 + ;(セミコロン): 1行を丸ごとコピー
+; F13 + ;(セミコロン): 1行を丸ごとコピーして文末に移動
 F13 & `;::Send,{Blind}{Home}{Shift Down}{End}{Shift Up}^c{End}
 F13 & [::Send,{Esc}
 F13 & sc01C::Send,{Blind}^{Enter} ; F13 + Enter: Ctrl + Enter
@@ -14,21 +14,21 @@ F13 & sc073::Send,{Blind}^y ; F13 + / やり直す(Ctrl + Y)
 F13 & ScrollLock::Shutdown, 2 ; F13 + ScrollLock: 再起動
 F13 & PrintScreen:: ; F13 + PrintScreen: 休止モード
     DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
-    return
+return
 
 ; F13 + a : 行の先頭に移動
 ; F13 + Shift + a : カーソル位置から文頭までを一括選択
 ; F13 + Control + a : ドキュメントの先頭に移動
 F13 & a::
     if GetKeyState("Shift"){
-	  Send,{Blind}{Shift Down}{Home}{Shift Up}
-      return
+        Send,{Blind}{Shift Down}{Home}{Shift Up}
+        return
     } else if GetKeyState("Ctrl"){
         Send,{Blind}^{Home}
         return
     }
     Send,{Home}
-    return
+return
 
 ; F13 + b : 左に移動(←)
 ; F13 + Ctrl + b : 単語単位で左に移動(Ctrl + ←)
@@ -38,31 +38,31 @@ F13 & b::
         return
     }
     Send,{Left}
-    return
+return
 
 ; F13 + e : 行の末尾に移動
 ; F13 + Shift + e : カーソル位置から文末までを一括選択
 ; F13 + Control + e : ドキュメントの末尾に移動
 F13 & e::
     if GetKeyState("Shift"){
-	  Send,{Blind}{Shift Down}{End}{Shift Up}
-      return
+        Send,{Blind}{Shift Down}{End}{Shift Up}
+        return
     } else if GetKeyState("Ctrl"){
         Send,{Blind}^{End}
         return
     }
     Send,{End}
-    return
+return
 
 ; F13 + c : 選択範囲をコピー(Ctrl + cと同じ)
-; F13 + Shift + c : １行を丸ごとコピーして選択した状態にする
+; F13 + Shift + c : １行を丸ごとコピーして文頭に移動
 F13 & c::
     if GetKeyState("Shift"){
-	  Send,{Home}{Blind}{Shift Down}{End}{Shift Up}^c
-      return
+        Send,{Home}{Blind}{Shift Down}{End}{Shift Up}^c{Home}
+        return
     }
     Send,{Blind}^c
-    return
+return
 
 ; F13 + f : 右に移動(→)
 ; F13 + Ctrl + f : 単語単位で右に移動(Ctrl + →)
@@ -72,7 +72,7 @@ F13 & f::
         return
     }
     Send,{Right}
-    return
+return
 
 ; F13 + Delete ; アプリを終了(ウィンドウ)を閉じる
 ; F13 + Shift + Delete : 全てのウィンドウを閉じる(CloseAllのアプリを実行)
@@ -82,7 +82,7 @@ F13 & Delete::
         return
     }
     Send,{Blind}!{F4}
-    return
+return
 
 ; F13 + n ; 下に移動
 ; F13 + Shift + n : 選択範囲を指定したまま下に移動
@@ -92,7 +92,7 @@ F13 & n::
         return
     }
     Send,{Down}
-    return
+return
 
 ; F13 + p ; 上に移動
 ; F13 + Shift + p : 選択範囲を指定したまま上に移動
@@ -102,20 +102,20 @@ F13 & p::
         return
     }
     Send,{Up}
-    return
+return
 
 ; F13 + Pause ; スリープ
 ; F13 + Shift + Pause : シャットダウン
 F13 & Pause::
     if GetKeyState("Shift"){
-      Shutdown, 1 ; シャットダウン:1
-      return
+        Shutdown, 1 ; シャットダウン:1
+        return
     }
     Send,{Blind}^d
     Send,{Blind}#x
     Send,u
     Send,s
-    return
+return
 
 ; F13 + r : Cliborのショートカットを呼び出し(Ctrl + Shift + Alt + R)
 F13 & r::Send,{Blind}^+!r
@@ -127,120 +127,120 @@ F13 & y::Send,{Blind}^y
 ; F13 + Shift + z : やり直す(Ctrl + Shift + Z)
 F13 & z::
     if GetKeyState("Shift"){
-      Send,{Blind}^+z
-      return
+        Send,{Blind}^+z
+        return
     }
     Send,{Blind}^z
-    return
+return
 
 ; F13 + w : 前方の単語の一区切りをクリップボードに履歴を残さず削除(削除)
 ; F13 + Shift + w : 前方の単語の一区切りをクリップボードに履歴を残して削除(切り取り)
 F13 & w::
     if GetKeyState("Shift"){
-	  Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}^x
-      return
+        Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}^x
+        return
     }
     Send,{Blind}{Control Down}{Shift Down}{Left}{Shift Up}{Control Up}{Backspace}
-    return
+return
 
 ; F13 + u : クリップボードに履歴を残さずカーソル位置から文頭までを一括削除
 ; F13 + Shift + u : クリップボードに履歴を残してカーソル位置から文頭までを一括削除
 F13 & u::
     if GetKeyState("Shift"){
-	  Send,{Blind}{Shift Down}{Home}{Shift Up}^x
-      return
+        Send,{Blind}{Shift Down}{Home}{Shift Up}^x
+        return
     }
     Send,{Blind}{Shift Down}{Home}{Shift Up}{Backspace}
-    return
+return
 
 ; F13 + d : 後方の一文字を削除
 ; F13 + Shift + d : クリップボードに履歴を残してカーソル位置から文末までを削除
 F13 & d::
     if GetKeyState("Shift"){
-      Send,{Blind}{Shift Down}{End}{Shift Up}^x
-      return
+        Send,{Blind}{Shift Down}{End}{Shift Up}^x
+        return
     }
     Send,{Blind}{Delete}
-    return
+return
 
 ; F13 + o : 折り返して改行
 ; F13 + Shift + o : 前の行に行を挿入
 F13 & o::
     if GetKeyState("Shift"){
-      Send,{Blind}{Shift Up}{Home}{Enter}{Up}
-      return
+        Send,{Blind}{Shift Up}{Home}{Enter}{Up}
+        return
     }
     Send,{Blind}{End}{Enter}
-    return
+return
 
 ; F13 + k : クリップボードに履歴を残さずカーソル位置から文末までを一括削除
 ; F13 + Shift + k : クリップボードに履歴を残して一行を削除
 F13 & k::
     if GetKeyState("Shift"){
-      Send,{Blind}{Shift Up}{End}{Shift Down}{Home}{Shift Up}^x
-      return
+        Send,{Blind}{Shift Up}{End}{Shift Down}{Home}{Shift Up}^x
+        return
     }
     Send,{Blind}{Shift Down}{End}{Shift Up}{Backspace}
-    return
+return
 
 ; F13 + v : 貼り付け(Ctrl + v)
 ; F13 + Shift + v : 前に行を挿入して貼り付け
 F13 & v::
     if GetKeyState("Shift"){
-      Send,{Home}{Enter}{Up}^v
-      return
+        Send,{Home}{Enter}{Up}^v
+        return
     }
     Send,{Blind}^v
-    return
+return
 
 F13 & Tab::
     if GetKeyState("Shift"){
-      Send,{Blind}{Shift Up}
-      Send,{Blind}{Ctrl Down}{Shift Down}{Tab}{Shift Up}{Ctrl Up}
-      return
+        Send,{Blind}{Shift Up}
+        Send,{Blind}{Ctrl Down}{Shift Down}{Tab}{Shift Up}{Ctrl Up}
+        return
     }
     Send,{Blind}^{Tab}
-    return
+return
 
 ; F13 + ↑キー : デスクトップ管理画面
 ; F13 + Shift + ↑キー : 上矢印入力
 F13 & Up::
     if GetKeyState("Shift"){
-    Send,{U+2191}
-    return
+        Send,{U+2191}
+        return
     }
     Send,{Blind}#{Tab}
-    return
+return
 
 ; F13 + ↓キー : デスクトップ管理画面
 ; F13 + Shift + ↓キー : 下矢印入力
 F13 & Down::
     if GetKeyState("Shift"){
-      Send,{U+2193}
-      return
+        Send,{U+2193}
+        return
     }
     Send,{Blind}#{Tab}
-    return
+return
 
 ; F13 + →キー : 右側のデスクトップに移動
 ; F13 + Shift + →キー : 右矢印キー
 F13 & Right::
     if GetKeyState("Shift"){
-      Send,{U+2192}
-      return
+        Send,{U+2192}
+        return
     }
     Send,{Blind}^#{Right}
-    return
+return
 
 ; F13 + ←キー : 左側のデスクトップに移動
 ; F13 + Shift + ←キー : 左矢印入力
 F13 & Left::
     if GetKeyState("Shift"){
-      Send,{U+2190}
-      return
+        Send,{U+2190}
+        return
     }
     Send,{Blind}^#{Left}
-    return
+return
 
 ; F13 + PageUpキー : 音量UP
 F13 & PgUp:: Send,{Volume_Up}
@@ -264,7 +264,7 @@ F13 & LButton::
         return
     }
     Send,{Blind}{Ctrl Down}{PgUp}{Ctrl Up}
-    return
+return
 
 ; タブを右に移動: F13 + 右クリック
 ; 画面動画をキャプチャー(RecExpertsを起動): F13 + Shift + 右クリック
@@ -279,7 +279,7 @@ F13 & RButton::
         return
     }
     Send,{Blind}{Ctrl Down}{PgDn}{Ctrl Up}
-    return
+return
 
 ; F14: 左クリック
 F14::Send,{LButton}
@@ -337,11 +337,11 @@ AppsKey & g::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\GOM\GOM P
 ; PowerShellを起動: アプリケーションキー + Ctrl + T
 AppsKey & t::
     if GetKeyState("Control"){
-      Run,"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
-      return
+        Run,"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+        return
     }
     Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Typora\Typora.lnk"
-    return
+return
 
 ; Kindleを起動: アプリケーションキー + R
 AppsKey & r::Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Amazon\Amazon Kindle\Kindle.lnk"
@@ -353,11 +353,11 @@ AppsKey & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk
 ; DBeaverを起動: アプリケーションキー + Ctrl + D
 AppsKey & d::
     if GetKeyState("Control"){
-      Run,"C:\Users\takayuki_kotsubo\AppData\Local\DBeaver\dbeaver.exe"
-      return
+        Run,"C:\Users\takayuki_kotsubo\AppData\Local\DBeaver\dbeaver.exe"
+        return
     }
     Run,"C:\Program Files\Docker\Docker\Docker Desktop.exe"
-    return
+return
 
 ; WinMergeを起動: アプリケーションキー + W
 AppsKey & w::Run,"C:\Program Files\WinMerge\WinMergeU.exe"
@@ -369,11 +369,11 @@ AppsKey & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote 2
 ; Slackを起動: アプリケーションキー + Ctrl + S
 AppsKey & s::
     if GetKeyState("Control"){
-      Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
-      return
+        Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
+        return
     }
     Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\sakura-editor.lnk"
-    return
+return
 
 ; Xmindを起動: アプリケーションキー + X
 AppsKey & x::Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Xmind.lnk"
@@ -382,11 +382,11 @@ AppsKey & x::Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\St
 ; Asanaを起動: アプリケーションキー + Ctrl + A
 AppsKey & a::
     if GetKeyState("Control"){
-	  Run,"C:\Users\t_kot\AppData\Local\Asana\Asana.exe"
-      return
+        Run,"C:\Users\t_kot\AppData\Local\Asana\Asana.exe"
+        return
     }
     Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\A5M2.lnk"
-    return
+return
 
 ; VS Codeを起動: AppsKeyキー + V
 ; Visual Studio 2022を起動: AppsKeyキー + Ctrl + V
@@ -396,12 +396,12 @@ AppsKey & v::
         return
     }
     Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
-    return
+return
 
 ; Excel起動時のみ：値のみ貼り付け
 #ifWinActive ahk_exe EXCEL.EXE
-AppsKey & v::Send,{AppsKey}s{Enter}v{Enter}
+    AppsKey & v::Send,{AppsKey}s{Enter}v{Enter}
 
 ; Excel起動時のみ：テーブルの枠線をつける
 #ifWinActive ahk_exe EXCEL.EXE
-F14 & f::Send,{Alt}hba
+    F14 & f::Send,{Alt}hba
