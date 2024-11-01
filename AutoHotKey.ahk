@@ -5,7 +5,6 @@ F13 & m::Send,{Blind}{Enter}
 F13 & i::Send,{Blind}^i
 F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
-F13 & z::Send,{Blind}#!z ; Cliborのショートカットを呼び出し
 ; F13 + ;(セミコロン): 1行を丸ごとコピー
 F13 & `;::Send,{Blind}{Home}{Shift Down}{End}{Shift Up}^c{End}
 F13 & [::Send,{Esc}
@@ -56,7 +55,7 @@ F13 & e::
     return
 
 ; F13 + c : 選択範囲をコピー(Ctrl + cと同じ)
-; F13 + Shift + c : クリップボードに履歴を残してカーソル位置から文頭までを一括コピー
+; F13 + Shift + c : １行を丸ごとコピーして選択した状態にする
 F13 & c::
     if GetKeyState("Shift"){
 	  Send,{Home}{Blind}{Shift Down}{End}{Shift Up}^c
@@ -118,9 +117,15 @@ F13 & Pause::
     Send,s
     return
 
-; F13 + r : 元に戻す
-; F13 + Shift + r : やり直す(Ctrl + Shift + Z)
-F13 & r::
+; F13 + r : Cliborのショートカットを呼び出し(Ctrl + Shift + Alt + R)
+F13 & r::Send,{Blind}^+!r
+
+; F13 + y : やり直す(Ctrl + Y)
+F13 & y::Send,{Blind}^y
+
+; F13 + z : 元に戻す
+; F13 + Shift + z : やり直す(Ctrl + Shift + Z)
+F13 & z::
     if GetKeyState("Shift"){
       Send,{Blind}^+z
       return
@@ -344,8 +349,15 @@ Appskey & r::Run,"C:\Users\t_kot\AppData\Local\Amazon\Kindle\application\Kindle.
 ; Excelを起動: アプリケーションキー + E
 Appskey & e::Run,"C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE"
 
-; Docker Desktopを起動: アプリケーションキー + D
-Appskey & d::Run,"C:\Program Files\Docker\Docker\Docker Desktop.exe"
+; Dockerを起動: アプリケーションキー + D
+; DBeaverを起動: アプリケーションキー + Ctrl + D
+AppsKey & d::
+    if GetKeyState("Control"){
+      Run,"C:\Users\takayuki_kotsubo\AppData\Local\DBeaver\dbeaver.exe"
+      return
+    }
+    Run,"C:\Program Files\DBeaver\dbeaver.exe"
+    return
 
 ; WinMergeを起動: アプリケーションキー + W
 Appskey & w::Run,"C:\Program Files (x86)\WinMerge\WinMergeU.exe"
