@@ -327,6 +327,9 @@ AppsKey::Send,{AppsKey}
 ; Notionを起動：AppsKeyキー + 1
 AppsKey & 1::Run,"C:\Users\t_kot\AppData\Local\Programs\Notion\Notion.exe"
 
+; 電卓を起動：AppsKeyキー + 2
+AppsKey & 2::Run,"C:\Shortcuts\Calculator.lnk"
+
 ; Chromeを起動：アプリケーションキー + C
 AppsKey & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
 
@@ -359,6 +362,9 @@ AppsKey & d::
     Run,"C:\Program Files\DBeaver\dbeaver.exe"
 return
 
+; Focus To-Doを起動: アプリケーションキー + F
+Appskey & f::Run,"C:\Shortcuts\Focus To-Do.lnk"
+
 ; WinMergeを起動: アプリケーションキー + W
 Appskey & w::Run,"C:\Program Files (x86)\WinMerge\WinMergeU.exe"
 
@@ -378,14 +384,14 @@ return
 ; Xmindを起動: アプリケーションキー + X
 Appskey & x::Run,"C:\Users\t_kot\AppData\Local\Programs\Xmind\Xmind.exe"
 
-; A5M2を起動: アプリケーションキー + A
-; Asanaを起動: アプリケーションキー + Ctrl + A
+; Amazon Musicを起動: アプリケーションキー + A
+; A5M2を起動: アプリケーションキー + Ctrl + A
 AppsKey & a::
     if GetKeyState("Control"){
-        Run,"C:\Users\t_kot\AppData\Local\Asana\Asana.exe"
+        Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\A5M2.lnk"
         return
     }
-    Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\A5M2.lnk"
+    Run, "C:\Shortcuts\Amazon Music.lnk"
 return
 
 ; VS Codeを起動: AppsKeyキー + V
