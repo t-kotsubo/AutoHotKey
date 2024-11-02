@@ -291,11 +291,11 @@ F14 & 3::Send,{F3}
 F14 & 4::Send,{F4}
 F14 & 5::Send,{F5}
 
-; スクリーンショット(Windows + Shift + S)
-F14 & s::Send,{Blind}#+s
-
-; 画面動画をキャプチャー(Windows + Alt + R)
+; 画面動画をキャプチャー(RecExpertsを起動)
 F14 & r::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\EaseUS RecExperts\EaseUS RecExperts.lnk"
+
+; サクラエディタを起動
+F14 & s::Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\sakura-editor.lnk"
 
 ; ターミナルを起動
 F14 & t::Run,wt.exe
@@ -326,6 +326,9 @@ AppsKey::Send,{AppsKey}
 
 ; Notionを起動：AppsKeyキー + 1
 AppsKey & 1::Run,"C:\Users\takayuki_kotsubo\AppData\Local\Programs\Notion\Notion.exe"
+
+; 電卓を起動：AppsKeyキー + 2
+AppsKey & 2::Run,"C:\Shortcuts\Calculator.lnk"
 
 ; Chromeを起動：アプリケーションキー + C
 AppsKey & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
@@ -359,33 +362,36 @@ AppsKey & d::
     Run,"C:\Program Files\Docker\Docker\Docker Desktop.exe"
 return
 
+; Focus To-Doを起動: アプリケーションキー + F
+Appskey & f::Run,"C:\Shortcuts\Focus To-Do.lnk"
+
 ; WinMergeを起動: アプリケーションキー + W
 AppsKey & w::Run,"C:\Program Files\WinMerge\WinMergeU.exe"
 
 ; OneNoteを起動: アプリケーションキー + Q
 AppsKey & q::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OneNote 2016.lnk"
 
-; サクラエディタを起動: アプリケーションキー + S
+; Sticky Notes(new)を起動: アプリケーションキー + S
 ; Slackを起動: アプリケーションキー + Ctrl + S
 AppsKey & s::
     if GetKeyState("Control"){
         Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
         return
     }
-    Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\sakura-editor.lnk"
+    Run,"C:\Shortcuts\Stickey Notes.lnk"
 return
 
 ; Xmindを起動: アプリケーションキー + X
 AppsKey & x::Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Xmind.lnk"
 
-; A5M2を起動: アプリケーションキー + A
-; Asanaを起動: アプリケーションキー + Ctrl + A
+; Amazon Musicを起動: アプリケーションキー + A
+; A5M2を起動: アプリケーションキー + Ctrl + A
 AppsKey & a::
     if GetKeyState("Control"){
-        Run,"C:\Users\t_kot\AppData\Local\Asana\Asana.exe"
+        Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\A5M2.lnk"
         return
     }
-    Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\A5M2.lnk"
+    Run,"C:\Shortcuts\Amazon Music.lnk"
 return
 
 ; VS Codeを起動: AppsKeyキー + V

@@ -391,7 +391,7 @@ AppsKey & a::
         Run,"C:\Users\t_kot\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\A5M2.lnk"
         return
     }
-    Run, "C:\Shortcuts\Amazon Music.lnk"
+    Run,"C:\Shortcuts\Amazon Music.lnk"
 return
 
 ; VS Codeを起動: AppsKeyキー + V
