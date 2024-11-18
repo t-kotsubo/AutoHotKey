@@ -5,6 +5,7 @@ F13 & m::Send,{Blind}{Enter}
 F13 & i::Send,{Blind}^i
 F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
+F13 & q::Send,{Blind}^1 ; workonaのタブ(1番目のタブ)を選択
 ; F13 + ;(セミコロン): 1行を丸ごとコピーして文末に移動
 F13 & `;::Send,{Blind}{Home}{Shift Down}{End}{Shift Up}^c{End}
 F13 & [::Send,{Esc}
