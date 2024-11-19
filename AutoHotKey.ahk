@@ -243,11 +243,25 @@ F13 & Left::
     Send,{Blind}^#{Left}
 return
 
-; F13 + PageUpキー : 音量UP
-F13 & PgUp:: Send,{Volume_Up}
+; F13 + PageUpキー : 音量UP(2段階)
+; F13 + Shift + PageUpキー : 音量UP(1段階)
+F13 & PgUp::
+    if GetKeyState("Shift"){
+        SoundSet, +1
+        return
+    }
+    Send,{Volume_Up}
+return
 
-; F13 + PageDownキー : 音量Down
-F13 & PgDn:: Send,{Volume_Down}
+; F13 + PageDownキー : 音量Down(2段階)
+; F13 + Shift + PageDownキー : 音量Down(1段階)
+F13 & PgDn::
+    if GetKeyState("Shift"){
+        SoundSet, -1
+        return
+    }
+    Send,{Volume_Down}
+return
 
 ; F13 + Endキー : ミュート/ミュート解除
 F13 & End:: Send,{Volume_Mute}
