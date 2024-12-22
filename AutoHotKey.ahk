@@ -346,7 +346,14 @@ AppsKey & 1::Run,"C:\Users\t_kot\AppData\Local\Programs\Notion\Notion.exe"
 AppsKey & 2::Run,"C:\Shortcuts\Calculator.lnk"
 
 ; Chromeを起動：アプリケーションキー + C
-AppsKey & c::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
+; ChatGPTを起動: アプリケーションキー + Ctrl + C
+AppsKey & c::
+    if GetKeyState("Control"){
+        Run,"C:\Shortcuts\ChatGPT.lnk"
+        return
+    }
+    Run,"C:\Program Files\Google\Chrome\Application\chrome.exe"
+return
 
 ; GOM Playerを起動：アプリケーションキー + G
 AppsKey & g::Run,"C:\Program Files\GOM\GOMPlayer+2024\GOM64.EXE"
