@@ -355,8 +355,8 @@ AppsKey & c::
     Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
 return
 
-; GOM Playerを起動：アプリケーションキー + G
-AppsKey & g::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\GOM\GOM Player Plus.lnk"
+; GitHubを起動：アプリケーションキー + G
+AppsKey & g::Run,"C:\Shortcuts\GitHub.lnk"
 
 ; Typoraを起動: アプリケーションキー + T
 ; PowerShellを起動: アプリケーションキー + Ctrl + T
