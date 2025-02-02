@@ -356,8 +356,8 @@ AppsKey & c::
     Run,"C:\Program Files\Google\Chrome\Application\chrome.exe"
 return
 
-; GOM Playerを起動：アプリケーションキー + G
-AppsKey & g::Run,"C:\Program Files\GOM\GOMPlayer+2024\GOM64.EXE"
+; GitHubを起動：アプリケーションキー + G
+AppsKey & g::Run,"C:\Shortcuts\GitHub.lnk"
 
 ; Typoraを起動: アプリケーションキー + T
 ; Todoistを起動: アプリケーションキー + Ctrl + T
