@@ -1,4 +1,5 @@
 F13 & 0::Send,{Home}
+F13 & ^::Send,{Home}{Ctrl Down}{Right}{Ctrl Up}
 F13 & h::Send,{Backspace}
 F13 & l::Send,{Blind}^l
 F13 & m::Send,{Blind}{Enter}
