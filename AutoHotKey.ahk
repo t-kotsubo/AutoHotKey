@@ -13,8 +13,8 @@ F13 & [::Send,{Esc}
 F13 & sc01C::Send,{Blind}^{Enter} ; F13 + Enter: Ctrl + Enter
 F13 & @::Send,{Blind}+\ ; F13 + @: |(パイプ)入力
 F13 & sc073::Send,{Blind}^y ; F13 + / やり直す(Ctrl + Y)
-F13 & ScrollLock::Shutdown, 2 ; F13 + ScrollLock: 再起動
-F13 & PrintScreen:: ; F13 + PrintScreen: 休止モード
+F13 & F16::Shutdown, 2 ; F13 + F16: 再起動
+F13 & F15:: ; F13 + F15: 休止モード
     DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
 return
 
@@ -106,17 +106,14 @@ F13 & p::
     Send,{Up}
 return
 
-; F13 + Pause ; スリープ
-; F13 + Shift + Pause : シャットダウン
-F13 & Pause::
+; F13 + F17 ; スリープモード
+; F13 + Shift + F17 : シャットダウン
+F13 & F17::
     if GetKeyState("Shift"){
         Shutdown, 1 ; シャットダウン:1
         return
     }
-    Send,{Blind}^d
-    Send,{Blind}#x
-    Send,u
-    Send,s
+    DllCall("PowrProf\SetSuspendState", "int", 1, "int", 0, "int", 0)
 return
 
 ; F13 + r : Cliborのショートカットを呼び出し(Ctrl + Shift + Alt + R)
