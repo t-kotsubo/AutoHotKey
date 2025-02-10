@@ -223,9 +223,13 @@ return
 
 ; F13 + →キー : 右側のデスクトップに移動
 ; F13 + Shift + →キー : 右矢印キー
+; F13 + Control + →キー : Windowを右に移動
 F13 & Right::
     if GetKeyState("Shift"){
         Send,{U+2192}
+        return
+    } else if GetKeyState("Control"){
+        Send,{Blind}#+{Right}
         return
     }
     Send,{Blind}^#{Right}
@@ -233,9 +237,13 @@ return
 
 ; F13 + ←キー : 左側のデスクトップに移動
 ; F13 + Shift + ←キー : 左矢印入力
+; F13 + Control + →キー : Windowを左に移動
 F13 & Left::
     if GetKeyState("Shift"){
         Send,{U+2190}
+        return
+    } else if GetKeyState("Control"){
+        Send,{Blind}#+{Left}
         return
     }
     Send,{Blind}^#{Left}
@@ -271,8 +279,7 @@ F13 & LButton::
     if GetKeyState("Shift"){
         Send,{Blind}#+s
         return
-    }
-    if GetKeyState("Control"){
+    } else if GetKeyState("Control"){
         MouseClick, Middle
         return
     }
@@ -280,14 +287,13 @@ F13 & LButton::
 return
 
 ; タブを右に移動: F13 + 右クリック
-; 画面動画をキャプチャー(RecExpertsを起動): F13 + Shift + 右クリック
-; メモ帳を起動: F13 + Control + 右クリック
+; メモ帳を起動: F13 + Shift + 右クリック
+; 画面動画をキャプチャー(RecExpertsを起動): F13 + Control + 右クリック
 F13 & RButton::
     if GetKeyState("Shift"){
         Run,notepad.exe
         return
-    }
-    if GetKeyState("Control"){
+    } else if GetKeyState("Control"){
         Run,"C:\Program Files (x86)\EaseUS\RecExperts\bin\RecExperts.exe"
         return
     }
