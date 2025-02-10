@@ -227,6 +227,9 @@ F13 & Right::
     if GetKeyState("Shift"){
         Send,{U+2192}
         return
+    } else if GetKeyState("Control"){
+        Send,{Blind}#+{Right}
+        return
     }
     Send,{Blind}^#{Right}
 return
@@ -236,6 +239,9 @@ return
 F13 & Left::
     if GetKeyState("Shift"){
         Send,{U+2190}
+        return
+    } else if GetKeyState("Control"){
+        Send,{Blind}#+{Left}
         return
     }
     Send,{Blind}^#{Left}
@@ -271,8 +277,7 @@ F13 & LButton::
     if GetKeyState("Shift"){
         Send,{Blind}#+s
         return
-    }
-    if GetKeyState("Control"){
+    } else if GetKeyState("Control"){
         MouseClick, Middle
         return
     }
@@ -431,3 +436,9 @@ return
 ; Excel起動時のみ：テーブルの枠線をつける
 #ifWinActive ahk_exe EXCEL.EXE
     F14 & f::Send,{Alt}hba
+
+; エクスプローラーを起動
+F15 & e::Run,explorer.exe
+
+; ダウンロードフォルダを開く
+F15 & d::Run,"C:\Users\takayuki_kotsubo\Downloads"
