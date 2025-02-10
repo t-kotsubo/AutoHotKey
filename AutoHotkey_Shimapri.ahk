@@ -34,9 +34,13 @@ return
 
 ; F13 + b : 左に移動(←)
 ; F13 + Ctrl + b : 単語単位で左に移動(Ctrl + ←)
+; F13 + Shift + b : 左に移動して複数文字を選択(Shift + ←)
 F13 & b::
     if GetKeyState("Ctrl"){
         Send,{Blind}^{Left}
+        return
+    } else if GetKeyState("Shift"){
+        Send,{Blind}{Shift Down}{Left}{Shift Up}
         return
     }
     Send,{Left}
@@ -68,9 +72,13 @@ return
 
 ; F13 + f : 右に移動(→)
 ; F13 + Ctrl + f : 単語単位で右に移動(Ctrl + →)
+; F13 + Shift + f : 右に移動して複数文字を選択(Ctrl + →)
 F13 & f::
     if GetKeyState("Ctrl"){
         Send,{Blind}^{Right}
+        return
+    } else if GetKeyState("Shift"){
+        Send,{Blind}{Shift Down}{Right}{Shift Up}
         return
     }
     Send,{Right}
