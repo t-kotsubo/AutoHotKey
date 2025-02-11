@@ -13,6 +13,7 @@ F13 & [::Send,{Esc}
 F13 & sc01C::Send,{Blind}^{Enter} ; F13 + Enter: Ctrl + Enter
 F13 & @::Send,{Blind}+\ ; F13 + @: |(パイプ)入力
 F13 & sc073::Send,{Blind}^y ; F13 + / やり直す(Ctrl + Y)
+F13 & /::Send,{Blind}#/ ; F13 + /: Windows + / (IMEの再変換)
 F13 & F16::Shutdown, 2 ; F13 + F16: 再起動
 F13 & F15:: ; F13 + F15: 休止モード
     DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
