@@ -212,9 +212,14 @@ return
 
 ; F13 + ↑キー : タスクビュー切替
 ; F13 + Shift + ↑キー : 上矢印入力
+; F13 + Control + ↑キー : 最小化したすべてのWindowを元に戻す
 F13 & Up::
     if GetKeyState("Shift"){
         Send,{U+2191}
+        return
+    } else if GetKeyState("Ctrl"){
+        Send,{Blind}#+m
+        Send,{LWin Down}{Shift Down}m{Shift Up}{LWin Up}
         return
     }
     Send,{Blind}#{Tab}
