@@ -210,35 +210,40 @@ F13 & Tab::
     Send,{Blind}^{Tab}
 return
 
-; F13 + ↑キー : デスクトップ管理画面
+; F13 + ↑キー : タスクビュー切替
 ; F13 + Shift + ↑キー : 上矢印入力
+; F13 + Control + ↑キー : 最小化したすべてのWindowを元に戻す
 F13 & Up::
     if GetKeyState("Shift"){
         Send,{U+2191}
+        return
+    } else if GetKeyState("Ctrl"){
+        Send,{Blind}#+m
+        Send,{LWin Down}{Shift Down}m{Shift Up}{LWin Up}
         return
     }
     Send,{Blind}#{Tab}
 return
 
-; F13 + ↓キー : デスクトップ管理画面
+; F13 + ↓キー : すべてのWindowを最小化
 ; F13 + Shift + ↓キー : 下矢印入力
 F13 & Down::
     if GetKeyState("Shift"){
         Send,{U+2193}
         return
     }
-    Send,{Blind}#{Tab}
+    Send,{Blind}#m
 return
 
 ; F13 + →キー : 右側のデスクトップに移動
-; F13 + Shift + →キー : 右矢印キー
-; F13 + Control + →キー : Windowを右に移動
+; F13 + Shift + →キー : 右矢印入力
+; F13 + Control + →キー : Windowを右画面にスナップ
 F13 & Right::
     if GetKeyState("Shift"){
         Send,{U+2192}
         return
     } else if GetKeyState("Control"){
-        Send,{Blind}#+{Right}
+        Send,{LWin Down}{Shift Down}{Right}{Shift Up}{LWin Up}
         return
     }
     Send,{Blind}^#{Right}
@@ -246,13 +251,13 @@ return
 
 ; F13 + ←キー : 左側のデスクトップに移動
 ; F13 + Shift + ←キー : 左矢印入力
-; F13 + Control + →キー : Windowを左に移動
+; F13 + Control + →キー : Windowを左画面にスナップ
 F13 & Left::
     if GetKeyState("Shift"){
         Send,{U+2190}
         return
     } else if GetKeyState("Control"){
-        Send,{Blind}#+{Left}
+        Send,{LWin Down}{Shift Down}{Left}{Shift Up}{LWin Up}
         return
     }
     Send,{Blind}^#{Left}
@@ -334,8 +339,8 @@ F14 & w::Run,notepad.exe
 ; エクスプローラーを起動
 F14 & e::Run,explorer.exe
 
-; ダウンロードフォルダを開く
-F14 & d::Run,"C:\Users\t_kot\Downloads"
+; Docker Desktopを起動
+F14 & d::Run,"C:\Program Files\Docker\Docker\Docker Desktop.exe"
 
 ; ペイントを開く
 F14 & p::Run,pbrush.exe
@@ -372,39 +377,46 @@ return
 AppsKey & g::Run,"C:\Shortcuts\GitHub.lnk"
 
 ; Typoraを起動: アプリケーションキー + T
-; Todoistを起動: アプリケーションキー + Ctrl + T
+; ターミナルを起動: アプリケーションキー + Ctrl + T
 AppsKey & t::
     if GetKeyState("Control"){
-        Run,"C:\Users\t_kot\AppData\Local\Programs\todoist\Todoist.exe"
+        Run,"C:\Shortcuts\Terminal.lnk"
         return
     }
     Run,"C:\Program Files\Typora\Typora.exe"
 return
 
 ; Kindleを起動: アプリケーションキー + R
-Appskey & r::Run,"C:\Users\t_kot\AppData\Local\Amazon\Kindle\application\Kindle.exe"
+AppsKey & r::Run,"C:\Users\t_kot\AppData\Local\Amazon\Kindle\application\Kindle.exe"
 
-; Excelを起動: アプリケーションキー + E
-Appskey & e::Run,"C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE"
+; エクスプローラーを起動: アプリケーションキー + E
+; Excelを起動: アプリケーションキー + Ctrl + E
+AppsKey & e::
+    if GetKeyState("Control"){
+        Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
+        return
+    }
+    Run,explorer.exe
+return
 
-; Dockerを起動: アプリケーションキー + D
+; ダウンロードフォルダを開く: アプリケーションキー + D
 ; DBeaverを起動: アプリケーションキー + Ctrl + D
 AppsKey & d::
     if GetKeyState("Control"){
-        Run,"C:\Users\takayuki_kotsubo\AppData\Local\DBeaver\dbeaver.exe"
+        Run,"C:\Program Files\DBeaver\dbeaver.exe"
         return
     }
-    Run,"C:\Program Files\DBeaver\dbeaver.exe"
+    Run,"C:\Users\t_kot\Downloads"
 return
 
 ; Focus To-Doを起動: アプリケーションキー + F
-Appskey & f::Run,"C:\Shortcuts\Focus To-Do.lnk"
+AppsKey & f::Run,"C:\Shortcuts\Focus To-Do.lnk"
 
 ; WinMergeを起動: アプリケーションキー + W
-Appskey & w::Run,"C:\Program Files (x86)\WinMerge\WinMergeU.exe"
+AppsKey & w::Run,"C:\Program Files (x86)\WinMerge\WinMergeU.exe"
 
 ; OneNoteを起動: アプリケーションキー + Q
-Appskey & q::Run,"C:\Program Files\Microsoft Office\root\Office16\ONENOTE.EXE"
+AppsKey & q::Run,"C:\Program Files\Microsoft Office\root\Office16\ONENOTE.EXE"
 
 ; Sticky Notes(new)を起動: アプリケーションキー + S
 ; Slackを起動: アプリケーションキー + Ctrl + S
@@ -417,7 +429,7 @@ AppsKey & s::
 return
 
 ; Xmindを起動: アプリケーションキー + X
-Appskey & x::Run,"C:\Users\t_kot\AppData\Local\Programs\Xmind\Xmind.exe"
+AppsKey & x::Run,"C:\Users\t_kot\AppData\Local\Programs\Xmind\Xmind.exe"
 
 ; Amazon Musicを起動: アプリケーションキー + A
 ; A5M2を起動: アプリケーションキー + Ctrl + A
