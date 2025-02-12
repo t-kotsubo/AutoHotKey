@@ -334,8 +334,8 @@ F14 & w::Run,notepad.exe
 ; エクスプローラーを起動
 F14 & e::Run,explorer.exe
 
-; ダウンロードフォルダを開く
-F14 & d::Run,"C:\Users\takayuki_kotsubo\Downloads"
+; Docker Desktopを起動
+F14 & d::Run,"C:\Program Files\Docker\Docker\Docker Desktop.exe"
 
 ; ペイントを開く
 F14 & p::Run,pbrush.exe
@@ -384,17 +384,24 @@ return
 ; Kindleを起動: アプリケーションキー + R
 AppsKey & r::Run,"C:\Users\takayuki_kotsubo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Amazon\Amazon Kindle\Kindle.lnk"
 
-; Excelを起動: アプリケーションキー + E
-AppsKey & e::Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
+; エクスプローラーを起動: アプリケーションキー + E
+; Excelを起動: アプリケーションキー + Ctrl + E
+AppsKey & e::
+    if GetKeyState("Control"){
+        Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
+        return
+    }
+    Run,explorer.exe
+return
 
-; Dockerを起動: アプリケーションキー + D
+; ダウンロードフォルダを開く: アプリケーションキー + D
 ; DBeaverを起動: アプリケーションキー + Ctrl + D
 AppsKey & d::
     if GetKeyState("Control"){
         Run,"C:\Users\takayuki_kotsubo\AppData\Local\DBeaver\dbeaver.exe"
         return
     }
-    Run,"C:\Program Files\Docker\Docker\Docker Desktop.exe"
+    Run,"C:\Users\takayuki_kotsubo\Downloads"
 return
 
 ; Focus To-Doを起動: アプリケーションキー + F
@@ -446,9 +453,3 @@ return
 ; Excel起動時のみ：テーブルの枠線をつける
 #ifWinActive ahk_exe EXCEL.EXE
     F14 & f::Send,{Alt}hba
-
-; エクスプローラーを起動
-F15 & e::Run,explorer.exe
-
-; ダウンロードフォルダを開く
-F15 & d::Run,"C:\Users\takayuki_kotsubo\Downloads"
