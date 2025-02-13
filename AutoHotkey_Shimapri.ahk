@@ -211,38 +211,41 @@ F13 & Tab::
 return
 
 ; F13 + ↑キー : タスクビュー切替
-; F13 + Shift + ↑キー : 上矢印入力
-; F13 + Control + ↑キー : 最小化したすべてのWindowを元に戻す
+; F13 + Control + ↑キー : 上矢印入力
+; F13 + Shift + ↑キー : 最小化したすべてのWindowを元に戻す
 F13 & Up::
-    if GetKeyState("Shift"){
+    if GetKeyState("Control"){
         Send,{U+2191}
         return
-    } else if GetKeyState("Ctrl"){
-        Send,{Blind}#+m
+    } else if GetKeyState("Shift"){
         Send,{LWin Down}{Shift Down}m{Shift Up}{LWin Up}
         return
     }
     Send,{Blind}#{Tab}
 return
 
-; F13 + ↓キー : すべてのWindowを最小化
-; F13 + Shift + ↓キー : 下矢印入力
+; F13 + ↓キー : タスクビュー切替
+; F13 + Control + ↓キー : 下矢印入力
+; F13 + Shift + ↓キー : すべてのWindowを最小化
 F13 & Down::
-    if GetKeyState("Shift"){
+    if GetKeyState("Control"){
         Send,{U+2193}
         return
+    } else if GetKeyState("Shift"){
+        Send,{LWin Down}m{LWin Up}
+        return
     }
-    Send,{Blind}#m
+    Send,{Blind}#{Tab}
 return
 
 ; F13 + →キー : 右側のデスクトップに移動
-; F13 + Shift + →キー : 右矢印入力
-; F13 + Control + →キー : Windowを右画面にスナップ
+; F13 + Control + →キー : 右矢印入力
+; F13 + Shift + →キー : Windowを右画面にスナップ
 F13 & Right::
-    if GetKeyState("Shift"){
+    if GetKeyState("Control"){
         Send,{U+2192}
         return
-    } else if GetKeyState("Control"){
+    } else if GetKeyState("Shift"){
         Send,{LWin Down}{Shift Down}{Right}{Shift Up}{LWin Up}
         return
     }
@@ -250,13 +253,13 @@ F13 & Right::
 return
 
 ; F13 + ←キー : 左側のデスクトップに移動
-; F13 + Shift + ←キー : 左矢印入力
-; F13 + Control + →キー : Windowを左画面にスナップ
+; F13 + Control + ←キー : 左矢印入力
+; F13 + Shift + ←キー : Windowを左画面にスナップ
 F13 & Left::
-    if GetKeyState("Shift"){
+    if GetKeyState("Control"){
         Send,{U+2190}
         return
-    } else if GetKeyState("Control"){
+    } else if GetKeyState("Shift"){
         Send,{LWin Down}{Shift Down}{Left}{Shift Up}{LWin Up}
         return
     }
