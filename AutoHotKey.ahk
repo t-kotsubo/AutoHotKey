@@ -220,13 +220,13 @@ return
 
 ; F13 + ↑キー : タスクビュー切替
 ; F13 + Control + ↑キー : 上矢印入力
-; F13 + Shift + ↑キー : 最小化したすべてのWindowを元に戻す
+; F13 + Shift + ↑キー : Windowを最大化
 F13 & Up::
     if GetKeyState("Control"){
         Send,{U+2191}
         return
     } else if GetKeyState("Shift"){
-        Send,{LWin Down}{Shift Down}m{Shift Up}{LWin Up}
+        Send,{LWin Down}{Up}{LWin Up}
         return
     }
     Send,{Blind}#{Tab}
@@ -234,13 +234,13 @@ return
 
 ; F13 + ↓キー : タスクビュー切替
 ; F13 + Control + ↓キー : 下矢印入力
-; F13 + Shift + ↓キー : すべてのWindowを最小化
+; F13 + Shift + ↓キー : Windowを最小化
 F13 & Down::
     if GetKeyState("Control"){
         Send,{U+2193}
         return
     } else if GetKeyState("Shift"){
-        Send,{LWin Down}m{LWin Up}
+        Send,{LWin Down}{Down}{LWin Up}
         return
     }
     Send,{Blind}#{Tab}
