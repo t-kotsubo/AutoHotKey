@@ -469,3 +469,30 @@ return
 ; Excel起動時のみ：テーブルの枠線をつける
 #ifWinActive ahk_exe EXCEL.EXE
     F14 & f::Send,{Alt}hba
+
+; VS Code内でのVimコマンド設定
+#IfWinActive ahk_exe Code.exe
+    ; F14 & w - 単語を選択 (Vimのviwコマンド)
+    F14 & w::
+        Send,viw
+        return
+
+    ; F13 & c - システムクリップボードにコピー (Vimの"+yコマンド)
+    F13 & c::
+        Send,"
+        Send,{+}
+        Send,y
+        return
+
+    ; F13 & v - システムクリップボードから貼り付け (Vimの"+pコマンド)
+    F13 & v::
+        if GetKeyState("Shift"){
+            Send,"
+            Send,{+}
+            Send,{Blind}+p
+            return
+        }
+        Send,"
+        Send,{+}
+        Send,p
+        return
