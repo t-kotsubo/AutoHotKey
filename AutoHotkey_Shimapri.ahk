@@ -492,13 +492,18 @@ return
         Send,{+}
         Send,p
         return
-    ; Alt + m：「marks:」でマーク一覧を表示
+    ; Alt + m：「:marks」でマーク一覧を表示
     !m::
         Send,:marks
         Send,{Enter}
         return
-    ; Alt + d： 「delmarks:」で指定のマークを削除
+    ; Alt + d：「:delmarks {マーク}」で指定のマークを削除
     !d::
         Send,:delmarks{Space}
+        return
+    ; Alt + r：「:reg」でレジスタ一覧を表示
+    !r::
+        Send,:reg
+        Send,{Enter}
         return
 #IfWinActive
