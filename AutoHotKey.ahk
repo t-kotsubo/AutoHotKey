@@ -462,13 +462,11 @@ AppsKey & v::
     Run,"C:\Users\t_kot\AppData\Local\Programs\Microsoft VS Code\Code.exe"
 return
 
-; Excel起動時のみ：値のみ貼り付け
+; Excel起動時のみ
 #ifWinActive ahk_exe EXCEL.EXE
-    AppsKey & v::Send,{AppsKey}s{Enter}v{Enter}
-
-; Excel起動時のみ：テーブルの枠線をつける
-#ifWinActive ahk_exe EXCEL.EXE
-    F14 & f::Send,{Alt}hba
+    AppsKey & v::Send,{AppsKey}s{Enter}v{Enter} ; 値のみ貼り付け
+    F14 & f::Send,{Alt}hba ; テーブルの枠線をつける
+#IfWinActive
 
 ; VS Code内でのVimコマンド設定
 #IfWinActive ahk_exe Code.exe
@@ -476,14 +474,12 @@ return
     F14 & w::
         Send,viw
         return
-
     ; F13 & c - システムクリップボードにコピー (Vimの"+yコマンド)
     F13 & c::
         Send,"
         Send,{+}
         Send,y
         return
-
     ; F13 & v - システムクリップボードから貼り付け (Vimの"+pコマンド)
     F13 & v::
         if GetKeyState("Shift"){
@@ -496,3 +492,13 @@ return
         Send,{+}
         Send,p
         return
+    ; Alt + m：「marks:」でマーク一覧を表示
+    !m::
+        Send,:marks
+        Send,{Enter}
+        return
+    ; Alt + d： 「delmarks:」で指定のマークを削除
+    !d::
+        Send,:delmarks{Space}
+        return
+#IfWinActive
