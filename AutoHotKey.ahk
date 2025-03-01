@@ -466,14 +466,12 @@ return
 #ifWinActive ahk_exe EXCEL.EXE
     AppsKey & v::Send,{AppsKey}s{Enter}v{Enter} ; 値のみ貼り付け
     F14 & f::Send,{Alt}hba ; テーブルの枠線をつける
+    F14 & c::Send,{Alt}oca ; 列幅の自動調整
+    F14 & r::Send,{Alt}ora ; 行幅の自動調整
 #IfWinActive
 
 ; VS Code内でのVimコマンド設定
 #IfWinActive ahk_exe Code.exe
-    ; F14 & w - 単語を選択 (Vimのviwコマンド)
-    F14 & w::
-        Send,viw
-        return
     ; F13 & c - システムクリップボードにコピー (Vimの"+yコマンド)
     F13 & c::
         Send,"
@@ -492,18 +490,27 @@ return
         Send,{+}
         Send,p
         return
-    ; Alt + m：「:marks」でマーク一覧を表示
-    !m::
+    ; F14 & w - 単語を選択 (Vimのviwコマンド)
+    F14 & w::
+        Send,viw
+        return
+    ; F14 + f：「:marks」でマーク一覧を表示
+    F14 & f::
         Send,:marks
         Send,{Enter}
         return
-    ; Alt + d：「:delmarks {マーク}」で指定のマークを削除
-    !d::
+    ; F14 + d：「:delmarks {マーク}」で指定のマークを削除
+    F14 & d::
         Send,:delmarks{Space}
         return
-    ; Alt + r：「:reg」でレジスタ一覧を表示
-    !r::
+    ; F14 + r：「:reg」でレジスタ一覧を表示
+    F14 & r::
         Send,:reg
+        Send,{Enter}
+        return
+    ; F14 + q：「:reg a-z A-Z」でマクロを含むレジスタ一覧を表示
+    F14 & q::
+        Send,:reg a-z A-Z
         Send,{Enter}
         return
 #IfWinActive
