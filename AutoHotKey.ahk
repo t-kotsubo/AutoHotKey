@@ -336,6 +336,9 @@ return
 ; F14: 左クリック
 F14::Send,{LButton}
 
+; F14 + Shift: 右クリック
++F14::Send,{RButton}
+
 ; F14 + 数字キー(1~5)： 各ファンクキー(F1~F5)
 F14 & 1::Send,{F1}
 F14 & 2::Send,{F2}
