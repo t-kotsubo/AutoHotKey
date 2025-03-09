@@ -333,6 +333,16 @@ F13 & RButton::
     Send,{Blind}{Ctrl Down}{PgDn}{Ctrl Up}
 return
 
+; F13 & .(ドット): 右のタブに移動(Ctrl + tab)
+F13 & .::
+    Send,{Blind}^{Tab}
+return
+
+; F13 & ,(カンマ): 左のタブに移動(Ctrl + Shift + tab)
+F13 & ,::
+    Send,{Blind}{Ctrl Down}{Shift Down}{Tab}{Shift Up}{Ctrl Up}
+return
+
 ; F14: 左クリック
 F14::Send,{LButton}
 
