@@ -485,7 +485,7 @@ return
         Send,"
         Send,{+}
         Send,y
-        return
+    return
     ; F13 & v - システムクリップボードから貼り付け (Vimの"+pコマンド)
     F13 & v::
         if GetKeyState("Shift"){
@@ -497,28 +497,36 @@ return
         Send,"
         Send,{+}
         Send,p
-        return
+    return
+    ; F13 & ,(カンマ) - gT(左のタブに移動)
+    F13 & ,::
+        Send,gT
+    return
+    ; F13 & .(ドット) - gt(右のタブに移動)
+    F13 & .::
+        Send,gt
+    return
     ; F14 & w - 単語を選択 (Vimのviwコマンド)
     F14 & w::
         Send,viw
-        return
+    return
     ; F14 + f：「:marks」でマーク一覧を表示
     F14 & f::
         Send,:marks
         Send,{Enter}
-        return
+    return
     ; F14 + d：「:delmarks {マーク}」で指定のマークを削除
     F14 & d::
         Send,:delmarks{Space}
-        return
+    return
     ; F14 + r：「:reg」でレジスタ一覧を表示
     F14 & r::
         Send,:reg
         Send,{Enter}
-        return
+    return
     ; F14 + q：「:reg a-z A-Z」でマクロを含むレジスタ一覧を表示
     F14 & q::
         Send,:reg a-z A-Z
         Send,{Enter}
-        return
+    return
 #IfWinActive
