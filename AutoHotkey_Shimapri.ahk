@@ -442,7 +442,7 @@ AppsKey & d::
 return
 
 ; Focus To-Doを起動: アプリケーションキー + F
-Appskey & f::Run,"C:\Shortcuts\Focus To-Do.lnk"
+AppsKey & f::Run,"C:\Shortcuts\Focus To-Do.lnk"
 
 ; WinMergeを起動: アプリケーションキー + W
 AppsKey & w::Run,"C:\Program Files\WinMerge\WinMergeU.exe"
