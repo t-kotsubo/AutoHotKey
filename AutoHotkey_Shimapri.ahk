@@ -223,6 +223,11 @@ F13 & o::
     Send,{Blind}{End}{Enter}
 return
 
+; F13 + j : タスクビュー切替
+F13 & j::
+    Send,{Blind}#{Tab}
+return
+
 ; F13 + k : クリップボードに履歴を残さずカーソル位置から文末までを一括削除
 ; F13 + Shift + k : クリップボードに履歴を残して一行を削除
 F13 & k::
