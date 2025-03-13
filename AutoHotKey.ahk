@@ -4,7 +4,6 @@ F13 & m::Send,{Blind}{Enter}
 F13 & i::Send,{Blind}^i
 F13 & t::Send,{Blind}{Shift Down}{Left}{Shift Up}^x{Right}^v{Left}
 F13 & x::Send,{Blind}^x
-F13 & q::Send,{Blind}!w ; workonaのタブ(Alt + w)を開くショートカットキー
 ; F13 + ;(セミコロン): 1行を丸ごとコピーして文末に移動
 F13 & `;::Send,{Blind}{Home}{Shift Down}{End}{Shift Up}^c{End}
 F13 & [::Send,{Esc}
@@ -155,6 +154,11 @@ F13 & p::
         return
     }
     Send,{Up}
+return
+
+; F13 + q: workonaのタブ(Alt + w)を開くショートカットキー
+F13 & q::
+    Send,{Blind}!w
 return
 
 ; F13 + F17 ; スリープモード
@@ -437,8 +441,8 @@ F14 & c::Run,control
 ; Windows + Xメニュー
 F14 & x::Send,{Blind}#x
 
-; OneNote クイックノートを起動する
-F14 & q::Send,{Blind}#!n
+; アプリを終了(ウィンドウ)を閉じる
+F14 & q::Send,{Blind}!{F4}
 
 ; アプリケーションキー設定
 AppsKey::Send,{AppsKey}
@@ -547,13 +551,13 @@ return
 
 ; VS Code内でのVimコマンド設定
 #IfWinActive ahk_exe Code.exe
-    ; F13 & c - システムクリップボードにコピー (Vimの"+yコマンド)
+    ; F13 + c - システムクリップボードにコピー (Vimの"+yコマンド)
     F13 & c::
         Send,"
         Send,{+}
         Send,y
     return
-    ; F13 & v - システムクリップボードから貼り付け (Vimの"+pコマンド)
+    ; F13 + v - システムクリップボードから貼り付け (Vimの"+pコマンド)
     F13 & v::
         if GetKeyState("Shift"){
             Send,"
@@ -565,7 +569,7 @@ return
         Send,{+}
         Send,p
     return
-    ; F13 & ,(カンマ) - gT(左のタブに移動)
+    ; F13 + ,(カンマ) - gT(左のタブに移動)
     ; F13 + Shift + ,(カンマ): Windowsを左にスナップ
     ; F13 + Control + ,(カンマ): 左側のデスクトップに移動
     F13 & ,::
@@ -578,7 +582,7 @@ return
         }
         Send,gT
     return
-    ; F13 & .(ドット) - gt(右のタブに移動)
+    ; F13 + .(ドット) - gt(右のタブに移動)
     ; F13 + Shift + ,(カンマ): Windowsを左にスナップ
     ; F13 + Control + ,(カンマ): 左側のデスクトップに移動
     F13 & .::
@@ -591,7 +595,28 @@ return
         }
         Send,gt
     return
-    ; F14 & w - 単語を選択 (Vimのviwコマンド)
+    ; F14 + a - すべてのタブを閉じる
+    ; F14 + F13 + a - すべてのタブを保存して閉じる
+    F14 & a::
+        if GetKeyState("F13"){
+            Send,:wqa{Enter}
+            return
+        }
+        Send,:qa{Enter}
+    return
+    ; F14 + v - タブ(Window)を左右に分割
+    F14 & v::
+        Send,:vsplit{Enter}
+    return
+    ; F14 + c - 現在アクティブなエディタ(ウィンドウ)のみを閉じる
+    F14 & c::
+        Send,:close{Enter}
+    return
+    ; F14 + t - 現在アクティブなタブページ以外のすべてのタブページを閉じる
+    F14 & t::
+        Send,:tabonly{Enter}
+    return
+    ; F14 + w - 単語を選択 (Vimのviwコマンド)
     F14 & w::
         Send,viw
     return
