@@ -224,15 +224,20 @@ F13 & o::
 return
 
 ; F13 + j : タスクビュー切替
+; F13 + Shift + j : Windowを最小化
 F13 & j::
+    if GetKeyState("Shift"){
+        Send,{LWin Down}{Down}{LWin Up}
+        return
+    }
     Send,{Blind}#{Tab}
 return
 
-; F13 + k : クリップボードに履歴を残さずカーソル位置から文末までを一括削除
-; F13 + Shift + k : クリップボードに履歴を残して一行を削除
+; F13 + k : カーソル位置から文末までを一括削除
+; F13 + Shift + k : Windowsを最大化
 F13 & k::
     if GetKeyState("Shift"){
-        Send,{Blind}{Shift Up}{End}{Shift Down}{Home}{Shift Up}^x
+        Send,{LWin Down}{Up}{LWin Up}
         return
     }
     Send,{Blind}{Shift Down}{End}{Shift Up}{Backspace}
