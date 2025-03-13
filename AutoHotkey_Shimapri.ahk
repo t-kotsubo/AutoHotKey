@@ -441,8 +441,11 @@ F14 & c::Run,control
 ; Windows + Xメニュー
 F14 & x::Send,{Blind}#x
 
+; OneNote クイックノートを起動する
+F14 & q::Send,{Blind}#!n
+
 ; アプリを終了(ウィンドウ)を閉じる
-F14 & q::Send,{Blind}!{F4}
+F14 & z::Send,{Blind}!{F4}
 
 ; アプリケーションキー設定
 AppsKey::Send,{AppsKey}
