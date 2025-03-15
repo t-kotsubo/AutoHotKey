@@ -611,26 +611,38 @@ return
     F14 & v::
         Send,:vsplit{Enter}
     return
-    ; F14 + c - 現在アクティブなエディタ(ウィンドウ)のみを閉じる
-    F14 & c::
+    ; F14 + x - 現在アクティブなエディタ(ウィンドウ)のみを閉じる(F14 + vと組み合わせて使用)
+    F14 & x::
         Send,:close{Enter}
     return
     ; F14 + t - 現在アクティブなタブページ以外のすべてのタブページを閉じる
     F14 & t::
         Send,:tabonly{Enter}
     return
-    ; F14 + w - 単語を選択 (Vimのviwコマンド)
+    ; F14 + e - ファイルを開く
+    F14 & e::
+        Send,:e{Space}
+    return
+    ; F14 + w - 単語を選択
     F14 & w::
         Send,viw
     return
-    ; F14 + f：「:marks」でマーク一覧を表示
+    ; F14 + c - 単語を全体を削除して挿入モードに移行
+    F14 & c::
+        Send,ciw
+    return
+    ; F14 + s - vim-surroundの「cs」コマンド
+    F14 & s::
+        Send,cs
+    return
+    ; F14 + d - vim-surroundの「ds」コマンド
+    F14 & d::
+        Send,ds
+    return
+    ; F14 + f -「:marks」でマーク一覧を表示
     F14 & f::
         Send,:marks
         Send,{Enter}
-    return
-    ; F14 + d：「:delmarks {マーク}」で指定のマークを削除
-    F14 & d::
-        Send,:delmarks{Space}
     return
     ; F14 + r：「:reg」でレジスタ一覧を表示
     F14 & r::
