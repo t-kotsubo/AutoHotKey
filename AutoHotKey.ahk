@@ -227,14 +227,16 @@ F13 & o::
     Send,{Blind}{End}{Enter}
 return
 
-; F13 + j : タスクビュー切替
 ; F13 + Shift + j : Windowを最小化
+; F13 + Control + j : タスクビュー切替
 F13 & j::
     if GetKeyState("Shift"){
         Send,{LWin Down}{Down}{LWin Up}
         return
+    } else if GetKeyState("Control"){
+        Send,{LWin Down}{Tab}{LWin Up}
+        return
     }
-    Send,{Blind}#{Tab}
 return
 
 ; F13 + k : カーソル位置から文末までを一括削除
