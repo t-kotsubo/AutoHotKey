@@ -375,33 +375,11 @@ F13 & RButton::
     Send,{Blind}{Ctrl Down}{PgDn}{Ctrl Up}
 return
 
-; F13 + Shift + .(ドット): Windowsを右にスナップ
-; F13 + Control + .(ドット): 右側のデスクトップに移動
-; F13 + .(ドット): 右のタブに移動(Ctrl + tab)
-F13 & .::
-    if GetKeyState("Shift"){
-        Send,{LWin Down}{Shift Down}{Right}{Shift Up}{LWin Up}
-        return
-    } else if GetKeyState("Control"){
-        Send,{Blind}^#{Right}
-        return
-    }
-    Send,{Blind}^{Tab}
-return
+; F13 + Shift + .(ドット): 右のタブに移動(Ctrl + tab)
+F13 & .::Send,{Blind}^{Tab}
 
-; F13 + Shift + ,(カンマ): Windowsを左にスナップ
-; F13 + Control + ,(カンマ): 左側のデスクトップに移動
-; F13 & ,(カンマ): 左のタブに移動(Ctrl + Shift + tab)
-F13 & ,::
-    if GetKeyState("Shift"){
-        Send,{LWin Down}{Shift Down}{Left}{Shift Up}{LWin Up}
-        return
-    } else if GetKeyState("Control"){
-        Send,{Blind}^#{Left}
-        return
-    }
-    Send,{Blind}{Ctrl Down}{Shift Down}{Tab}{Shift Up}{Ctrl Up}
-return
+; F13 + Shift + ,(カンマ): 左のタブに移動(Ctrl + Shift + tab)
+F13 & ,::Send,{Blind}{Ctrl Down}{Shift Down}{Tab}{Shift Up}{Ctrl Up}
 
 ; F14: 左クリック
 F14::Send,{LButton}
@@ -574,32 +552,10 @@ return
         Send,{+}
         Send,p
     return
-    ; F13 + ,(カンマ) - gT(左のタブに移動)
-    ; F13 + Shift + ,(カンマ): Windowsを左にスナップ
-    ; F13 + Control + ,(カンマ): 左側のデスクトップに移動
-    F13 & ,::
-        if GetKeyState("Shift"){
-            Send,{LWin Down}{Shift Down}{Left}{Shift Up}{LWin Up}
-            return
-        } else if GetKeyState("Control"){
-            Send,{Blind}^#{Left}
-            return
-        }
-        Send,gT
-    return
-    ; F13 + .(ドット) - gt(右のタブに移動)
-    ; F13 + Shift + ,(カンマ): Windowsを左にスナップ
-    ; F13 + Control + ,(カンマ): 左側のデスクトップに移動
-    F13 & .::
-        if GetKeyState("Shift"){
-            Send,{LWin Down}{Shift Down}{Right}{Shift Up}{LWin Up}
-            return
-        } else if GetKeyState("Control"){
-            Send,{Blind}^#{Right}
-            return
-        }
-        Send,gt
-    return
+    ; F13 + Shift + ,(カンマ) - gT(左のタブに移動)
+    F13 & ,::Send,gT
+    ; F13 + Shift + .(ドット) - gt(右のタブに移動)
+    F13 & .::Send,gt
     ; F14 + a - すべてのタブを閉じる
     ; F14 + F13 + a - すべてのタブを保存して閉じる
     F14 & a::
