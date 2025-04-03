@@ -534,6 +534,8 @@ return
 
 ; VS Code内でのVimコマンド設定
 #IfWinActive ahk_exe Code.exe
+    ; F13 + g - 指定の行に移動
+    F13 & g::Send,{Blind}^g
     ; F13 + c - システムクリップボードにコピー (Vimの"+yコマンド)
     F13 & c::
         Send,"
