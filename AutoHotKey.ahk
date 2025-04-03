@@ -565,9 +565,9 @@ return
         }
         Send,:qa{Enter}
     return
-    ; F14 + v - タブ(Window)を左右に分割
+    ; F14 + v - ファイルを指定してタブ(Window)を左右に分割
     F14 & v::
-        Send,:vsplit{Enter}
+        Send,:vsp{Space}
     return
     ; F14 + x - 現在アクティブなエディタ(ウィンドウ)のみを閉じる(F14 + vと組み合わせて使用)
     F14 & x::
