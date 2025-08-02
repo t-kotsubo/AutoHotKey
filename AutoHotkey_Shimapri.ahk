@@ -437,17 +437,24 @@ AppsKey & 1::Run,"C:\Users\takayuki_kotsubo\AppData\Local\Programs\Notion\Notion
 AppsKey & 2::Run,"C:\Shortcuts\Calculator.lnk"
 
 ; Chromeを起動：アプリケーションキー + C
-; ChatGPTを起動: アプリケーションキー + Ctrl + C
+; Copilot(Windows)を起動: アプリケーションキー + Ctrl + C
 AppsKey & c::
     if GetKeyState("Control"){
-        Run,"C:\Shortcuts\ChatGPT.lnk"
+        Run,"C:\Shortcuts\Copilot.lnk"
         return
     }
     Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
 return
 
-; GitHubを起動：アプリケーションキー + G
-AppsKey & g::Run,"C:\Shortcuts\GitHub.lnk"
+; Glary Utilitiesを起動：アプリケーションキー + G
+; ChatGPTを起動：アプリケーションキー + Ctrl + G
+AppsKey & g::
+    if GetKeyState("Control"){
+        Run,"C:\Shortcuts\ChatGPT.lnk"
+        return
+    }
+    Run,"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Glary Utilities.lnk"
+return
 
 ; Typoraを起動: アプリケーションキー + T
 ; PowerShellを起動: アプリケーションキー + Ctrl + T
@@ -534,7 +541,7 @@ return
 
 ; VS Code内でのVimコマンド設定
 #IfWinActive ahk_exe Code.exe
-    ; F13 + g - 指定の行に移動
+    ; F13 + g - 指定の行に移動 (Vimの":{行番号}コマンド)
     F13 & g::Send,{Blind}^g
     ; F13 + c - システムクリップボードにコピー (Vimの"+yコマンド)
     F13 & c::
